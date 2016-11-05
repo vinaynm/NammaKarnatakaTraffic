@@ -7,11 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class NewVehicleFragment extends Fragment {
+    private AdView mAdView;
 
 
     public NewVehicleFragment() {
@@ -24,6 +28,7 @@ public class NewVehicleFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_new_vehicle, container, false);
+
     }
 
 }
