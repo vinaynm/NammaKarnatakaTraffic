@@ -3,33 +3,50 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_new_traffic"
+            android:icon="@drawable/ic_car_xxl"
+            android:title="Traffic Violation(New Reg)" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_old_traffic"
+            android:icon="@drawable/ic_172040_200"
+            android:title="Traffic Violation(Old Reg)" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_puc_check"
+            android:icon="@drawable/ic_exhaust"
+            android:title="PUC Check" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_licence_search"
+            android:icon="@drawable/driver_license"
+            android:title="Driving License Status" />
+        <item
+            android:id="@+id/nav_rc_check"
+            android:icon="@drawable/ic_reg"
+            android:title="Vehicle RC Status" />
+        <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/ic_notice"
+            android:title="News and Notices" />
+        <item
+            android:id="@+id/nav_questionbank"
+            android:icon="@drawable/ic_519660_164_questionmark_512"
+            android:title="LL Question Bank" />
+        <item
+            android:id="@+id/nav_ll_test"
+            android:icon="@drawable/ic_question_icon_79660"
+            android:title="LL Test Practice" />
+
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Others">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/nav_about_us"
+                android:icon="@drawable/ic_photo"
+                android:title="About US" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_support"
+                android:icon="@drawable/ic_customer_service_icon_png_9"
+                android:title="Support" />
         </menu>
     </item>
 
