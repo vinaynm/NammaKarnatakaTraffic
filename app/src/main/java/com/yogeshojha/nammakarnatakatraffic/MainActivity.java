@@ -106,6 +106,69 @@ public class MainActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
 
+        } else if(id == R.id.nav_puc_check)
+        {
+            //set the fragments initially
+            PUCFragment fragment = new PUCFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+        }
+        else if (id == R.id.nav_licence_search)
+        {
+            //set the fragments initially
+            DlCheckFragment fragment = new DlCheckFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+        }
+        else if (id == R.id.nav_rc_check)
+        {
+            //set the fragments initially
+            VehicleRcFragment fragment = new VehicleRcFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+        }
+        else if(id == R.id.nav_news)
+        {
+            //set the fragments initially
+            NewsFragment fragment = new NewsFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+        }
+        else if(id == R.id.nav_questionbank)
+        {
+            //set the fragments initially
+            QuestionBankFragment fragment = new QuestionBankFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+        }
+        else if(id == R.id.nav_ll_test)
+        {
+            //set the fragments initially
+            TestFragment fragment = new TestFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+        }
+        else if(id == R.id.nav_about_us)
+        {
+            //set the fragments initially
+            AboutUs fragment = new AboutUs();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+        }
+        else if(id == R.id.nav_support)
+        {
+            //set the fragments initially
+            SupportFragment fragment = new SupportFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
