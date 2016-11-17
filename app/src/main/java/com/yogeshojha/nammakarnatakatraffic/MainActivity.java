@@ -92,20 +92,21 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        setTitle("Namma Karnataka Traffic");
         if (id == R.id.nav_new_traffic) {
             //set the fragments initially
             NewVehicleFragment fragment = new NewVehicleFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+            setTitle("New Registration Traffic Violation");
         } else if (id == R.id.nav_old_traffic) {
             //set the fragments initially
             OldVehicleFragment fragment = new OldVehicleFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-
+            setTitle("Old Registration Traffic Violation");
         } else if(id == R.id.nav_puc_check)
         {
             //set the fragments initially
@@ -113,6 +114,8 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+            setTitle("PUC Check");
+
         }
         else if (id == R.id.nav_licence_search)
         {
@@ -121,6 +124,8 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+            setTitle("Driving License Status");
+
         }
         else if (id == R.id.nav_rc_check)
         {
@@ -129,6 +134,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+            setTitle("Vehicle RC Status");
         }
         else if(id == R.id.nav_news)
         {
@@ -137,6 +143,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+            setTitle("News and Notices");
         }
         else if(id == R.id.nav_questionbank)
         {
@@ -145,6 +152,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+            setTitle("Learner's Licence Question Bank");
         }
         else if(id == R.id.nav_ll_test)
         {
@@ -153,6 +161,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+            setTitle("Learner's Licence Practice Test");
         }
         else if(id == R.id.nav_about_us)
         {
@@ -161,6 +170,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+            setTitle("About Us");
         }
         else if(id == R.id.nav_support)
         {
@@ -169,10 +179,12 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+            setTitle("Support");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
