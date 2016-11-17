@@ -166,20 +166,12 @@ public class MainActivity extends AppCompatActivity
         else if(id == R.id.nav_about_us)
         {
             //set the fragments initially
-            AboutUs fragment = new AboutUs();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("About Us");
+
         }
         else if(id == R.id.nav_support)
         {
             //set the fragments initially
-            SupportFragment fragment = new SupportFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("Support");
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

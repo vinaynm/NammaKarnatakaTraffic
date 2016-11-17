@@ -42,11 +42,11 @@
             <item
                 android:id="@+id/nav_about_us"
                 android:icon="@drawable/ic_photo"
-                android:title="About US" />
+                android:title="About" />
             <item
                 android:id="@+id/nav_support"
-                android:icon="@drawable/ic_customer_service_icon_png_9"
-                android:title="Support" />
+                android:icon="@drawable/rate"
+                android:title="Rate Us" />
         </menu>
     </item>
 
