@@ -26,7 +26,7 @@ public class PUCFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_puc, container, false);
         String [] values = {"Petrol Vehicle", "Diesel Vehicle"};
         Spinner spinner = (Spinner) v.findViewById(R.id.puc_spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_dropdown_item_1line, values);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this.getActivity(), android.R.layout.simple_dropdown_item_1line, values);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinner.setAdapter(adapter);
         return v;
