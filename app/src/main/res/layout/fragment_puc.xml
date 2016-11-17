@@ -126,6 +126,12 @@
                             android:hint="1234" />
 
                     </LinearLayout>
+                    <Spinner android:id="@+id/puc_spinner"
+                        android:layout_width="fill_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_height="wrap_content"
+                        ></Spinner>
                     <Button
                         android:text="Submit"
                         android:layout_width="match_parent"
