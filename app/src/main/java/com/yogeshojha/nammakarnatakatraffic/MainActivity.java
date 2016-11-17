@@ -1,8 +1,14 @@
 package com.yogeshojha.nammakarnatakatraffic;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
+import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +18,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -136,42 +144,58 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
             setTitle("Vehicle RC Status");
         }
-        else if(id == R.id.nav_news)
-        {
-            //set the fragments initially
-            NewsFragment fragment = new NewsFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("News and Notices");
-        }
-        else if(id == R.id.nav_questionbank)
-        {
-            //set the fragments initially
-            QuestionBankFragment fragment = new QuestionBankFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("Learner's Licence Question Bank");
-        }
-        else if(id == R.id.nav_ll_test)
-        {
-            //set the fragments initially
-            TestFragment fragment = new TestFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("Learner's Licence Practice Test");
-        }
+//        else if(id == R.id.nav_news)
+//        {
+//            //set the fragments initially
+//            NewsFragment fragment = new NewsFragment();
+//            android.support.v4.app.FragmentTransaction fragmentTransaction =
+//                    getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+//            setTitle("News and Notices");
+//        }
+//        else if(id == R.id.nav_questionbank)
+//        {
+//            //set the fragments initially
+//            QuestionBankFragment fragment = new QuestionBankFragment();
+//            android.support.v4.app.FragmentTransaction fragmentTransaction =
+//                    getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+//            setTitle("Learner's Licence Question Bank");
+//        }
+//        else if(id == R.id.nav_ll_test)
+//        {
+//            //set the fragments initially
+//            TestFragment fragment = new TestFragment();
+//            android.support.v4.app.FragmentTransaction fragmentTransaction =
+//                    getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+//            setTitle("Learner's Licence Practice Test");
+//        }
         else if(id == R.id.nav_about_us)
         {
             //set the fragments initially
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+            alertDialog.setTitle("About");
+            alertDialog.setMessage("Namma Karnataka Traffic is not an official app of Karnataka Traffic Police\n" +
+                    "Namma Karnataka Traffic helps you check traffic violations, view RTO details, check driving license status, check PUC status and many more." +
+                    "\nYou can now practice LL test too!!!\n" +
+                    "In a nutshell Namma Karnataka Traffic is a RTO in your Pocket\n" +
+                    "Developer: Yogesh Ojha\nEmail: yogesh@linux.com\nWebsite:http://yogeshojha.com");
+            alertDialog.setIcon(R.drawable.traffic);
+            alertDialog.setPositiveButton("Visit Website", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+
+                    // Write your code here to invoke YES event
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://yogeshojha.com")));
+                }
+            });
+            alertDialog.show();
 
         }
         else if(id == R.id.nav_support)
         {
             //set the fragments initially
-
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.yogeshojha.nammakarnatakatraffic")));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
