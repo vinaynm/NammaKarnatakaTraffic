@@ -5,21 +5,21 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <com.karthik.kenburnsview.KenBurnsView
+    <com.yogeshojha.nammakarnatakatraffic.KenBurnsView
         android:id="@+id/ken_burns_images"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!--<ImageView-->
-        <!--android:id="@+id/imagelogo"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginTop="106dp"-->
-        <!--android:src="@drawable/logo" />-->
+    <ImageView
+        android:id="@+id/imagelogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="106dp"
+        android:src="@drawable/traffic" />
 
-    <com.karthik.kenburnsview.RobotoTextView
+    <com.yogeshojha.nammakarnatakatraffic.RobotoTextView
         android:id="@+id/welcome_text"
         style="@style/TextViewAppearance.Headline2"
         android:layout_width="wrap_content"
