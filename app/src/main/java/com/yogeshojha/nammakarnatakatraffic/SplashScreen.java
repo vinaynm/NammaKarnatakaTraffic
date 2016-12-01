@@ -54,13 +54,20 @@ public class SplashScreen extends Activity {
                     }
                     if(isInternetOn())
                     {
-
+                        Intent intent = new Intent(SplashScreen.this,
+                                MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent);
+                        SplashScreen.this.finish();
                     }
-                    Intent intent = new Intent(SplashScreen.this,
-                            MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                    startActivity(intent);
-                    SplashScreen.this.finish();
+                    else
+                    {
+                        Intent intent = new Intent(SplashScreen.this,
+                                NoInternet.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent);
+                        SplashScreen.this.finish();
+                    }
                 } catch (InterruptedException e) {
                     // do nothing
                 } finally {
@@ -96,4 +103,5 @@ public class SplashScreen extends Activity {
         }
         return false;
     }
+
 }

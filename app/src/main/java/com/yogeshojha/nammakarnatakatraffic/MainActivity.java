@@ -3,6 +3,7 @@ package com.yogeshojha.nammakarnatakatraffic;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -34,14 +35,12 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        //set the ads
-        mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                .build();
-        mAdView.loadAd(adRequest);
-
-
+            setContentView(R.layout.activity_main);
+            //set the ads
+            mAdView = (AdView) findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder()
+                    .build();
+            mAdView.loadAd(adRequest);
         //set the fragments initially
         NewVehicleFragment fragment = new NewVehicleFragment();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
@@ -103,11 +102,12 @@ public class MainActivity extends AppCompatActivity
         setTitle("Namma Karnataka Traffic");
         if (id == R.id.nav_new_traffic) {
             //set the fragments initially
-            NewVehicleFragment fragment = new NewVehicleFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("New Registration Traffic Violation");
+                    NewVehicleFragment fragment = new NewVehicleFragment();
+                android.support.v4.app.FragmentTransaction fragmentTransaction =
+                        getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+                setTitle("New Registration Traffic Violation");
+
         } else if (id == R.id.nav_old_traffic) {
             //set the fragments initially
             OldVehicleFragment fragment = new OldVehicleFragment();
