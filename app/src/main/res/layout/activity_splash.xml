@@ -18,12 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-
-
-            >
+            android:orientation="horizontal">
             <ImageView
                 android:layout_weight="1"
                 android:layout_width="100dp"
@@ -31,73 +26,68 @@
                 android:id="@+id/cloud"
                 android:padding="2dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginTop="60dp"
                 android:textAlignment="center"
                 android:src="@drawable/splash_cloud2"
-                />
+                android:adjustViewBounds="true" />
             <ImageView
                 android:layout_weight="1"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:id="@+id/sun"
-                android:padding="2dp"
-                android:layout_marginRight="10dp"
                 android:textAlignment="center"
+                android:layout_marginLeft="30dp"
                 android:src="@drawable/splash_sun"
-                />
+                android:adjustViewBounds="true" />
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/cloud2"
+                android:textAlignment="center"
+                android:src="@drawable/splash_cloud1"
+                android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false" />
 
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="40dp"
             android:orientation="horizontal"
-
-
             >
             <ImageView
                 android:layout_weight="1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:id="@+id/imagev1"
-                android:padding="2dp"
-                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/hotel"
                 android:textAlignment="center"
-                android:src="@drawable/splash_building1"
-                />
-            <ImageView
-                android:layout_weight="1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:id="@+id/imagev2"
-                android:padding="2dp"
-                android:layout_marginRight="10dp"
-                android:textAlignment="center"
-                android:src="@drawable/splash__building2"
-                />
-            <ImageView
-                android:layout_weight="1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:id="@+id/imagev3"
-                android:padding="2dp"
-                android:layout_marginRight="10dp"
-                android:textAlignment="center"
-                android:src="@drawable/splash_building3"
-                />
+                android:src="@drawable/splash_building"
+                android:adjustViewBounds="true" />
 
-
-            <ImageView
-                android:id="@+id/imagev4"
-                android:layout_weight="1"
-                android:padding="2dp"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:textAlignment="center"
-                android:src="@drawable/splash_building4"
-                />
         </LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/road"
+                android:textAlignment="center"
+                android:src="@drawable/splash_road"
+                android:adjustViewBounds="true" />
+            <ImageView
+                android:id="@+id/car"
+                android:layout_alignTop="@id/road"
+                android:layout_alignBottom="@id/road"
+                android:layout_alignLeft="@id/road"
+                android:layout_alignRight="@id/road"
+                android:src="@drawable/splash_car"
+                android:scaleType="fitXY"
+                android:layout_width="250dp"
+                android:layout_height="70dp" />
+        </FrameLayout>
         </LinearLayout>
 </RelativeLayout>
