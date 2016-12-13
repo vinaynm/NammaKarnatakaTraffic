@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class SplashScreen extends Activity {
     /**
@@ -46,6 +47,8 @@ public class SplashScreen extends Activity {
     }
 
     public void startanim() {
+        ImageView comp = (ImageView) findViewById(R.id.namma);
+        TextView name = (TextView) findViewById(R.id.logoname);
         car.setVisibility(View.GONE);
         animSlide = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.slide);
@@ -53,7 +56,10 @@ public class SplashScreen extends Activity {
         cloudanimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.floating);
         sunanimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.sunanim);
         roadanim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.roadanim);
+        Animation logo = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.alpha);
 
+        name.startAnimation(logo);
+        comp.startAnimation(logo);
         sun.startAnimation(sunanimation);
         cloud.startAnimation(cloudanimation);
         cloud1.startAnimation(cloudanimation);
