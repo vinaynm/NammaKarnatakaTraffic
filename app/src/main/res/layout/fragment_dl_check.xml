@@ -140,6 +140,20 @@
                         android:background="#3F51B5"
                         android:textColor="#fff"
                         android:layout_centerHorizontal="true" />
+                    <Button
+                        android:text="Submit"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:id="@+id/puc_submit"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_below="@+id/inputarea"
+                        android:textSize="20dp"
+                        android:gravity="center"
+                        android:background="#3F51B5"
+                        android:textColor="#fff"
+                        android:layout_centerHorizontal="true" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
