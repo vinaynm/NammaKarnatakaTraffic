@@ -6,6 +6,9 @@ package com.yogeshojha.nammakarnatakatraffic;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 public class SplashScreen extends Activity {
     /** Called when the activity is first created. */
@@ -13,5 +16,9 @@ public class SplashScreen extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        ImageView car = (ImageView) findViewById(R.id.car);
+        Animation animSlide = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.slide);
+        car.startAnimation(animSlide);
     }
 }
