@@ -17,8 +17,11 @@ public class SplashScreen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ImageView car = (ImageView) findViewById(R.id.car);
+        ImageView house = (ImageView) findViewById(R.id.hotel);
         Animation animSlide = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.slide);
+        Animation houseanimation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.bounce);
+        house.startAnimation(houseanimation);
         car.startAnimation(animSlide);
     }
 }
