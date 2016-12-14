@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -33,13 +34,16 @@ import java.util.ArrayList;
  */
 public class NewVehicleFragment extends Fragment implements View.OnClickListener {
     public RecyclerView mRecyclerView;
+    public InterstitialAd interstitial;
     public String VehicleNo;
     public EditText inputstate;
     public EditText inputdstate;
     public EditText inputtdstate;
     public EditText inputdtdstate;
+    public LinearLayout ads_frag_new;
     private RecyclerView.Adapter mAdapter;
     public TextView inputVehicleTextView;
+    AdRequest adRequest;
     private String URL;
     public TextView violatedtext;
     ProgressDialog mProgressDialog;
@@ -53,6 +57,9 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        interstitial = new InterstitialAd(getActivity());
+        interstitial.setAdUnitId(getString(R.string.interstitial_full_screen));
+        adRequest = new AdRequest.Builder().addTestDevice("A526B528A785E1B56228B28C8F79CC11").build();
         View v = inflater.inflate(R.layout.fragment_new_vehicle, container, false);
         Button new_submit_btn = (Button) v.findViewById(R.id.submit_new);
         new_submit_btn.setOnClickListener(this);
@@ -61,6 +68,10 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
+        //interstial ads
+        interstitial.loadAd(adRequest);
+        interstitial.show();
+        //
         //set cards
         mRecyclerView = (RecyclerView) getActivity().findViewById(R.id.new_fine);
         mRecyclerView.setHasFixedSize(true);
@@ -122,7 +133,9 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         public Void doInBackground(Void... params) {
             try {
                 // Connect to website
-                Document document = Jsoup.connect(URL).timeout(5000).get();
+                Document document = Jsoup.connect(URL).timeout(15000).get();
+                //ho yesto bhaneko dai yee.. tyo ta server mai garnu paryo hoina kam ? timile vane anusar ... hmm dai ani sunnu na aws kati samma free ho? 1 instance run garchau vane 1 year samma 2 ota instance cha vane 6 months samma hmm 1euta instance ma jati ni host garna paiyo ni haina dai? payincha.. tara domain nai host garna chain route 52 lai pay garna parcha chuttai...hmmm ani k dai tyo public ip static ho ki dyanamic? ahile normally dynamic huncha..  but elastic ip lina milcha timile option huncha ni dashboard ma dekhko chau ? khai  sikai dinu ta dai kina vane ma tyo ip ma request garaune ho yo android app bata so Okay bro  aghi disconnect vayecha net nai .. khola ta dashboard
+                System.out.println(document);
                 finearray.clear();
                 int count = 0;
                 for (Element table : document.select("table.fines")) {
@@ -175,6 +188,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         mAdapter = new MyRecyclerViewAdapter(getDataSet(finearray));
         mRecyclerView.setVisibility(View.VISIBLE);
         mRecyclerView.setAdapter(mAdapter);
+        violatedtext.setVisibility(View.VISIBLE);
         violatedtext.setText(VIOLATED + arrayoffine.size());
     }
     private ArrayList<DataObject> getDataSet(ArrayList<String> array_of_fine) {
