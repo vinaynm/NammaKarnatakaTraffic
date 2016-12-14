@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#03A9F4"
+    android:background="#607D8B"
     android:id="@+id/lin_lay"
     android:fitsSystemWindows="true"
     >
@@ -108,6 +108,7 @@
                         android:textAlignment="center"
                         android:src="@drawable/splash_road"
                         android:adjustViewBounds="true" />
+
                     <ImageView
                         android:id="@+id/car"
                         android:layout_alignTop="@id/road"
@@ -116,7 +117,6 @@
                         android:layout_alignRight="@id/road"
                         android:src="@drawable/splash_car"
                         android:scaleType="fitXY"
-                        android:layout_marginLeft="5dp"
                         android:layout_width="180dp"
                         android:layout_height="50dp" />
                 </FrameLayout>

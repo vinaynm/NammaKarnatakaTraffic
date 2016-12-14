@@ -16,7 +16,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class SplashScreen extends Activity {
+public class SplashScreen extends Activity implements ConnectivityReceiver.ConnectivityReceiverListener{
     /**
      * Called when the activity is first created.
      */
@@ -78,8 +78,7 @@ public class SplashScreen extends Activity {
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     public void run() {
-                        Intent myIntent = new Intent(getBaseContext(), MainActivity.class); startActivity(myIntent);
-
+                        checkConnection();
                     }
                 }, 1500);
             }
@@ -89,5 +88,36 @@ public class SplashScreen extends Activity {
 
             }
         });
+    }
+    private void checkConnection() {
+        boolean isConnected = ConnectivityReceiver.isConnected();
+        showSnack(isConnected);
+    }
+    private void showSnack(boolean isConnected) {
+        String message;
+        int color;
+        if (isConnected) {
+            Intent myIntent = new Intent(getBaseContext(), MainActivity.class); startActivity(myIntent);
+
+        } else {
+            Intent myIntent = new Intent(getBaseContext(), NoInternet.class); startActivity(myIntent);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // register connection status listener
+        ListenConnection.getInstance().setConnectivityListener(this);
+    }
+
+    /**
+     * Callback will be triggered when there is change in
+     * network connection
+     */
+    @Override
+    public void onNetworkConnectionChanged(boolean isConnected) {
+        showSnack(isConnected);
     }
 }

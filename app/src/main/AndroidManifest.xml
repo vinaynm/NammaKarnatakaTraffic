@@ -77,6 +77,13 @@
         <activity android:name=".NoInternet"
             android:screenOrientation="portrait"
             ></activity>
+        <receiver
+            android:name=".ConnectivityReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
