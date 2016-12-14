@@ -6,7 +6,7 @@ package com.yogeshojha.nammakarnatakatraffic;
 
 import android.app.Application;
 
-public class ListenConnection extends Application {
+public class ListenConnection extends Application    {
 
     private static ListenConnection mInstance;
 

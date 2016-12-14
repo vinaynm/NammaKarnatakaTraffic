@@ -10,7 +10,7 @@ import com.google.android.gms.analytics.Tracker;
  * Created by y0g3sh on 5/11/16.
  */
 
-public class MyApplication extends Application {
+public class MyApplication extends ListenConnection {
     public static final String TAG = MyApplication.class
             .getSimpleName();
 
