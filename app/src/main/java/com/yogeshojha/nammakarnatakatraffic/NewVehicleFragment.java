@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
@@ -40,6 +41,8 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     public EditText inputdstate;
     public EditText inputtdstate;
     public EditText inputdtdstate;
+    private AdView mAdView_new;
+    public AdRequest adRequest_new;
     public LinearLayout ads_frag_new;
     private RecyclerView.Adapter mAdapter;
     public TextView inputVehicleTextView;
@@ -51,16 +54,19 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     private RecyclerView.LayoutManager mLayoutManager;
     public TextView fineslistshow;
     public LinearLayout finecards;
+    View v;
     public static final String VIOLATED = "Total No of. Violations: ";
     public static final String No_FINE = "No Traffic Violations has been recorded for this vehicle number.\nHave a Happy and Safe ride";
     public final ArrayList<String> finearray = new ArrayList<String>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+//        ads_frag_new = (LinearLayout) getActivity().findViewById(R.id.new_frag_ads);
+//        ads_frag_new.setVisibility(View.GONE);
         interstitial = new InterstitialAd(getActivity());
         interstitial.setAdUnitId(getString(R.string.interstitial_full_screen));
-        adRequest = new AdRequest.Builder().addTestDevice("A526B528A785E1B56228B28C8F79CC11").build();
-        View v = inflater.inflate(R.layout.fragment_new_vehicle, container, false);
+        v = inflater.inflate(R.layout.fragment_new_vehicle, container, false);
+        adRequest = new AdRequest.Builder().build();
         Button new_submit_btn = (Button) v.findViewById(R.id.submit_new);
         new_submit_btn.setOnClickListener(this);
         return v;
@@ -68,6 +74,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
+
         //interstial ads
         interstitial.loadAd(adRequest);
         interstitial.show();
@@ -190,6 +197,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         mRecyclerView.setAdapter(mAdapter);
         violatedtext.setVisibility(View.VISIBLE);
         violatedtext.setText(VIOLATED + arrayoffine.size());
+        showad();
     }
     private ArrayList<DataObject> getDataSet(ArrayList<String> array_of_fine) {
         ArrayList results = new ArrayList<DataObject>();
@@ -199,5 +207,15 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
             results.add(index, obj);
         }
         return results;
+    }
+    public void  showad()
+    {
+        mAdView_new = new AdView(getActivity());
+        mAdView_new.setAdUnitId("ca-app-pub-9002284518905519/1011285388");
+        mAdView_new.setAdSize(AdSize.BANNER);
+        LinearLayout layoutrc = (LinearLayout) getActivity().findViewById(R.id.layout_admob_new);
+        layoutrc.addView(mAdView_new);
+        AdRequest adRequest_new = new AdRequest.Builder().build();
+        mAdView_new.loadAd(adRequest_new);
     }
 }
