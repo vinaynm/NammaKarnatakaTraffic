@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity
             setContentView(R.layout.activity_main);
             //set the ads
             mAdView = (AdView) findViewById(R.id.adView);
-            AdRequest adRequest = new AdRequest.Builder()
+            AdRequest adRequest = new AdRequest.Builder().addTestDevice("A526B528A785E1B56228B28C8F79CC11")
                     .build();
             mAdView.loadAd(adRequest);
         //set the fragments initially
@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
     }
 
     @Override
