@@ -146,14 +146,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-                    <LinearLayout
-                        android:id="@+id/layout_admob_new"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical" >
-                    </LinearLayout>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -164,6 +156,7 @@
                         android:layout_marginRight="5dp"
                         android:textSize="21dp"
                         android:gravity="center"
+                        android:visibility="gone"
                         android:id="@+id/inputVehicle" />
                     <TextView
                         android:layout_width="match_parent"
@@ -175,6 +168,7 @@
                         android:layout_marginRight="5dp"
                         android:textSize="18dp"
                         android:gravity="center"
+                        android:visibility="gone"
                         android:id="@+id/nofine" />
                     <TextView
                         android:layout_gravity="center"
@@ -187,13 +181,41 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
                         android:textSize="18dp"
-                        android:gravity="left"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        android:textColor="#F44336"
                         android:id="@+id/totalviolations" />
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:id="@+id/TotalAmountLayout"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:textSize="20dp"
+                                android:textColor="#4CAF50"
+                                android:text="Total Fine Amount: "
+                                />
+                            <TextView
+                                android:id="@+id/amount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:textSize="35dp"
+                                android:layout_gravity="center"
+                                android:textStyle="bold"
+                                android:textColor="#4CAF50"
+                                />
+                        </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="vertical"
                     android:id="@+id/finedetailslist">
                     <android.support.v7.widget.RecyclerView
@@ -203,11 +225,11 @@
                         android:scrollbars="vertical"/>
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_marginBottom="100dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-
             </LinearLayout>
         </LinearLayout>
 

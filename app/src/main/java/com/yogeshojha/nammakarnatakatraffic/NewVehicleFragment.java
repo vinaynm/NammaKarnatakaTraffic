@@ -37,7 +37,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     public EditText inputdstate;
     public EditText inputtdstate;
     public EditText inputdtdstate;
-    private AdView mAdView_new;
     private RecyclerView.Adapter mAdapter;
     public TextView inputVehicleTextView;
     AdRequest adRequest;
@@ -49,13 +48,18 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     private RecyclerView.LayoutManager mLayoutManager;
     public TextView fineslistshow;
     public LinearLayout finecards;
+    public TextView totalAmount;
+    public LinearLayout amountLayout;
     View v;
+    private int total;
+    public static final String RupeeSymbol = "\u20B9";
     public static final String VIOLATED = "Total No of. Violations: ";
     public static final String No_FINE = "No Traffic Violations has been recorded for this vehicle number.\nHave a Happy and Safe ride";
     public final ArrayList<String> finearray = new ArrayList<String>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         interstitial = new InterstitialAd(getActivity());
         interstitial.setAdUnitId(getString(R.string.interstitial_full_screen));
         v = inflater.inflate(R.layout.fragment_new_vehicle, container, false);
@@ -84,6 +88,10 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         inputdtdstate = (EditText) getActivity().findViewById(R.id.asdtn);
         fineslistshow = (TextView) getActivity().findViewById(R.id.nofine);
         violatedtext = (TextView) getActivity().findViewById(R.id.totalviolations);
+        amountLayout = (LinearLayout) getActivity().findViewById(R.id.TotalAmountLayout);
+        amountLayout.setVisibility(View.GONE);
+        totalAmount = (TextView) getActivity().findViewById(R.id.amount);
+        total = 0;
         switch (v.getId()) {
             case R.id.submit_new:
                 String ets;
@@ -147,6 +155,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                                     "Notice Number: "+tds.get(1).text()+"\n"
                             ;
                             finearray.add(finedetails);
+                            total += Integer.parseInt(tds.get(5).text());
                         }
                         count++;
                     }
@@ -164,7 +173,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                 nofines(No_FINE);
             }
             else {
-                fineexist(finearray);
+                fineexist(finearray, total);
             }
         }
 
@@ -178,8 +187,9 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         fineslistshow.setTextColor(Color.parseColor("#3F51B5"));
         fineslistshow.setText(response);
     }
-    public void fineexist(ArrayList<String> arrayoffine)
+    public void fineexist(ArrayList<String> arrayoffine, int TotalAmt)
     {
+        inputVehicleTextView.setVisibility(View.VISIBLE);
         count++;
         finecards.setVisibility(View.VISIBLE);
         fineslistshow.setVisibility(View.GONE);
@@ -188,16 +198,8 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         mRecyclerView.setAdapter(mAdapter);
         violatedtext.setVisibility(View.VISIBLE);
         violatedtext.setText(VIOLATED + arrayoffine.size());
-        if(count == 1)
-        {
-            mAdView_new = new AdView(getActivity());
-            mAdView_new.setAdUnitId("ca-app-pub-9002284518905519/1011285388");
-            mAdView_new.setAdSize(AdSize.BANNER);
-            LinearLayout layoutrc = (LinearLayout) getActivity().findViewById(R.id.layout_admob_new);
-            layoutrc.addView(mAdView_new);
-            AdRequest adRequest_new = new AdRequest.Builder().build();
-            mAdView_new.loadAd(adRequest_new);
-        }
+        amountLayout.setVisibility(View.VISIBLE);
+        totalAmount.setText(RupeeSymbol+total);
     }
     private ArrayList<DataObject> getDataSet(ArrayList<String> array_of_fine) {
         ArrayList results = new ArrayList<>();
