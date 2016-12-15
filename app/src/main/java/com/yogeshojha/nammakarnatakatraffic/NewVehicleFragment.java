@@ -63,12 +63,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                              Bundle savedInstanceState) {
 //        ads_frag_new = (LinearLayout) getActivity().findViewById(R.id.new_frag_ads);
 //        ads_frag_new.setVisibility(View.GONE);
-        mAdView_new = new AdView(getActivity());
-        mAdView_new.setAdUnitId("ca-app-pub-9002284518905519/1011285388");
-        mAdView_new.setAdSize(AdSize.BANNER);
-        LinearLayout layoutrc = (LinearLayout) getActivity().findViewById(R.id.layout_admob_new);
-        layoutrc.addView(mAdView_new);
-        AdRequest adRequest_new = new AdRequest.Builder().build();
         interstitial = new InterstitialAd(getActivity());
         interstitial.setAdUnitId(getString(R.string.interstitial_full_screen));
         v = inflater.inflate(R.layout.fragment_new_vehicle, container, false);
@@ -90,7 +84,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        //
         finecards = (LinearLayout) getActivity().findViewById(R.id.finedetailslist);
         inputVehicleTextView = (TextView) getActivity().findViewById(R.id.inputVehicle);
         inputstate = (EditText) getActivity().findViewById(R.id.stateka);
@@ -202,7 +195,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         mRecyclerView.setAdapter(mAdapter);
         violatedtext.setVisibility(View.VISIBLE);
         violatedtext.setText(VIOLATED + arrayoffine.size());
-        mAdView_new.loadAd(adRequest_new);
+        showad(adRequest_new);
     }
     private ArrayList<DataObject> getDataSet(ArrayList<String> array_of_fine) {
         ArrayList results = new ArrayList<DataObject>();
@@ -212,5 +205,9 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
             results.add(index, obj);
         }
         return results;
+    }
+    public void  showad(AdRequest adRequest_new)
+    {
+        mAdView_new.loadAd(adRequest_new);
     }
 }
