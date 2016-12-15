@@ -29,10 +29,6 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class NewVehicleFragment extends Fragment implements View.OnClickListener {
     public RecyclerView mRecyclerView;
     public InterstitialAd interstitial;
@@ -42,8 +38,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     public EditText inputtdstate;
     public EditText inputdtdstate;
     private AdView mAdView_new;
-    public AdRequest adRequest_new;
-    public LinearLayout ads_frag_new;
     private RecyclerView.Adapter mAdapter;
     public TextView inputVehicleTextView;
     AdRequest adRequest;
@@ -62,8 +56,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        ads_frag_new = (LinearLayout) getActivity().findViewById(R.id.new_frag_ads);
-//        ads_frag_new.setVisibility(View.GONE);
         interstitial = new InterstitialAd(getActivity());
         interstitial.setAdUnitId(getString(R.string.interstitial_full_screen));
         v = inflater.inflate(R.layout.fragment_new_vehicle, container, false);
@@ -79,7 +71,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         //interstial ads
         interstitial.loadAd(adRequest);
         interstitial.show();
-        //
         //set cards
         mRecyclerView = (RecyclerView) getActivity().findViewById(R.id.new_fine);
         mRecyclerView.setHasFixedSize(true);
@@ -140,7 +131,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         public Void doInBackground(Void... params) {
             try {
                 // Connect to website
-                Document document = Jsoup.connect(URL).timeout(15000).get();
+                Document document = Jsoup.connect(URL).timeout(20000).get();
                 System.out.println(document);
                 finearray.clear();
                 int count = 0;
@@ -209,7 +200,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         }
     }
     private ArrayList<DataObject> getDataSet(ArrayList<String> array_of_fine) {
-        ArrayList results = new ArrayList<DataObject>();
+        ArrayList results = new ArrayList<>();
         for (int index = 0; index < array_of_fine.size(); index++) {
 
             DataObject obj = new DataObject(array_of_fine.get(index));
