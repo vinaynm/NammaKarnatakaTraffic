@@ -2,23 +2,27 @@ package com.yogeshojha.nammakarnatakatraffic;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -63,15 +67,97 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         interstitial = new InterstitialAd(getActivity());
         interstitial.setAdUnitId(getString(R.string.interstitial_full_screen));
         v = inflater.inflate(R.layout.fragment_new_vehicle, container, false);
-        adRequest = new AdRequest.Builder().build();
-        Button new_submit_btn = (Button) v.findViewById(R.id.submit_new);
+        adRequest = new AdRequest.Builder().addTestDevice("A526B528A785E1B56228B28C8F79CC11").build();
+        final Button new_submit_btn = (Button) v.findViewById(R.id.submit_new);
+        ButtonPayFine = (Button) v.findViewById(R.id.ButtonPayFine);
+        ButtonRateUs = (Button) v.findViewById(R.id.ButtonRateUs);
+        ButtonPayFine.setVisibility(View.GONE);
+        ButtonRateUs.setVisibility(View.GONE);
+        inputstate = (EditText) v.findViewById(R.id.stateka);
+        inputdstate = (EditText) v.findViewById(R.id.asd);
+        inputtdstate = (EditText) v.findViewById(R.id.asdt);
+        inputdtdstate = (EditText) v.findViewById(R.id.asdtn);
         new_submit_btn.setOnClickListener(this);
+        ButtonPayFine.setOnClickListener(this);
+        ButtonRateUs.setOnClickListener(this);
+        inputstate.addTextChangedListener(new TextWatcher() {
+
+            public void onTextChanged(CharSequence s, int start,int before, int count)
+            {
+                // TODO Auto-generated method stub
+                if(inputstate.getText().toString().length()==2)     //size as per your requirement
+                {
+                    inputdstate.requestFocus();
+                }
+            }
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+                // TODO Auto-generated method stub
+
+            }
+
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+            }
+
+        });
+        inputdstate.addTextChangedListener(new TextWatcher() {
+
+            public void onTextChanged(CharSequence s, int start,int before, int count)
+            {
+                // TODO Auto-generated method stub
+                if(inputdstate.getText().toString().length()==2)     //size as per your requirement
+                {
+                    inputtdstate.requestFocus();
+                }
+            }
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+                // TODO Auto-generated method stub
+
+            }
+
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+            }
+
+        });
+        inputtdstate.addTextChangedListener(new TextWatcher() {
+
+            public void onTextChanged(CharSequence s, int start,int before, int count)
+            {
+                // TODO Auto-generated method stub
+                if(inputtdstate.getText().toString().length()==2)     //size as per your requirement
+                {
+                    inputdtdstate.requestFocus();
+                }
+            }
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+                // TODO Auto-generated method stub
+
+            }
+
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+            }
+
+        });
+        inputdtdstate.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    new_submit_btn.performClick();
+                    return true;
+                }
+                return false;
+            }
+        });
         return v;
     }
 
     @Override
     public void onClick(View v) {
-
         //interstial ads
         interstitial.loadAd(adRequest);
         interstitial.show();
@@ -82,19 +168,11 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         mRecyclerView.setLayoutManager(mLayoutManager);
         finecards = (LinearLayout) getActivity().findViewById(R.id.finedetailslist);
         inputVehicleTextView = (TextView) getActivity().findViewById(R.id.inputVehicle);
-        inputstate = (EditText) getActivity().findViewById(R.id.stateka);
-        inputdstate = (EditText) getActivity().findViewById(R.id.asd);
-        inputtdstate = (EditText) getActivity().findViewById(R.id.asdt);
-        inputdtdstate = (EditText) getActivity().findViewById(R.id.asdtn);
         fineslistshow = (TextView) getActivity().findViewById(R.id.nofine);
         violatedtext = (TextView) getActivity().findViewById(R.id.totalviolations);
         amountLayout = (LinearLayout) getActivity().findViewById(R.id.TotalAmountLayout);
         amountLayout.setVisibility(View.GONE);
         totalAmount = (TextView) getActivity().findViewById(R.id.amount);
-        ButtonPayFine = (Button) getActivity().findViewById(R.id.ButtonPayFine);
-        ButtonRateUs = (Button) getActivity().findViewById(R.id.ButtonRateUs);
-        ButtonPayFine.setVisibility(View.GONE);
-        ButtonRateUs.setVisibility(View.GONE);
         total = 0;
         switch (v.getId()) {
             case R.id.submit_new:
@@ -128,6 +206,12 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                     new FetchWebsiteData().execute();
                 }
                 break;
+            case R.id.ButtonPayFine:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.bangaloreone.gov.in/login.aspx")));
+                break;
+            case R.id.ButtonRateUs:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.yogeshojha.nammakarnatakatraffic")));
+                break;
         }
     }
     public class FetchWebsiteData extends AsyncTask<Void, Void, Void>{
@@ -143,7 +227,8 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         public Void doInBackground(Void... params) {
             try {
                 // Connect to website
-                Document document = Jsoup.connect(URL).timeout(20000).get();
+                Document document = Jsoup.connect(URL)
+                        .timeout(15000).get();
                 finearray.clear();
                 int count = 0;
                 for (Element table : document.select("table.fines")) {
