@@ -48,6 +48,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     public TextView inputVehicleTextView;
     AdRequest adRequest;
     private String URL;
+    int count = 0;
     public TextView violatedtext;
     ProgressDialog mProgressDialog;
     public String finedetails = "";
@@ -188,6 +189,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     }
     public void fineexist(ArrayList<String> arrayoffine)
     {
+        count++;
         finecards.setVisibility(View.VISIBLE);
         fineslistshow.setVisibility(View.GONE);
         mAdapter = new MyRecyclerViewAdapter(getDataSet(finearray));
@@ -195,7 +197,16 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         mRecyclerView.setAdapter(mAdapter);
         violatedtext.setVisibility(View.VISIBLE);
         violatedtext.setText(VIOLATED + arrayoffine.size());
-        showad(adRequest_new);
+        if(count == 1)
+        {
+            mAdView_new = new AdView(getActivity());
+            mAdView_new.setAdUnitId("ca-app-pub-9002284518905519/1011285388");
+            mAdView_new.setAdSize(AdSize.BANNER);
+            LinearLayout layoutrc = (LinearLayout) getActivity().findViewById(R.id.layout_admob_new);
+            layoutrc.addView(mAdView_new);
+            AdRequest adRequest_new = new AdRequest.Builder().build();
+            mAdView_new.loadAd(adRequest_new);
+        }
     }
     private ArrayList<DataObject> getDataSet(ArrayList<String> array_of_fine) {
         ArrayList results = new ArrayList<DataObject>();
@@ -205,9 +216,5 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
             results.add(index, obj);
         }
         return results;
-    }
-    public void  showad(AdRequest adRequest_new)
-    {
-        mAdView_new.loadAd(adRequest_new);
     }
 }
