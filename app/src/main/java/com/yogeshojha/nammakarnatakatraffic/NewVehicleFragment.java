@@ -17,8 +17,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
 import org.jsoup.Jsoup;
@@ -50,6 +48,8 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     public LinearLayout finecards;
     public TextView totalAmount;
     public LinearLayout amountLayout;
+    public Button ButtonPayFine;
+    public Button ButtonRateUs;
     View v;
     private int total;
     public static final String RupeeSymbol = "\u20B9";
@@ -91,6 +91,10 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         amountLayout = (LinearLayout) getActivity().findViewById(R.id.TotalAmountLayout);
         amountLayout.setVisibility(View.GONE);
         totalAmount = (TextView) getActivity().findViewById(R.id.amount);
+        ButtonPayFine = (Button) getActivity().findViewById(R.id.ButtonPayFine);
+        ButtonRateUs = (Button) getActivity().findViewById(R.id.ButtonRateUs);
+        ButtonPayFine.setVisibility(View.GONE);
+        ButtonRateUs.setVisibility(View.GONE);
         total = 0;
         switch (v.getId()) {
             case R.id.submit_new:
@@ -140,7 +144,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
             try {
                 // Connect to website
                 Document document = Jsoup.connect(URL).timeout(20000).get();
-                System.out.println(document);
                 finearray.clear();
                 int count = 0;
                 for (Element table : document.select("table.fines")) {
@@ -180,6 +183,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     }
     public void nofines(String response)
     {
+        ButtonRateUs.setVisibility(View.VISIBLE);
         violatedtext.setVisibility(View.GONE);
         mRecyclerView.setVisibility(View.GONE);
         inputVehicleTextView.setVisibility(View.VISIBLE);
@@ -189,6 +193,8 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     }
     public void fineexist(ArrayList<String> arrayoffine, int TotalAmt)
     {
+        ButtonPayFine.setVisibility(View.VISIBLE);
+        ButtonRateUs.setVisibility(View.VISIBLE);
         inputVehicleTextView.setVisibility(View.VISIBLE);
         count++;
         finecards.setVisibility(View.VISIBLE);

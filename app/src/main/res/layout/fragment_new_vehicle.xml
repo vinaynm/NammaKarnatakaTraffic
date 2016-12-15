@@ -225,9 +225,37 @@
                         android:scrollbars="vertical"/>
                 </LinearLayout>
             </LinearLayout>
-
+                <Button
+                    android:visibility="gone"
+                    android:text="Pay Fine"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:id="@+id/ButtonPayFine"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:background="#4CAF50"
+                    android:textColor="#fff"
+                    android:layout_centerHorizontal="true" />
+                <Button
+                    android:visibility="gone"
+                    android:text="Rate Us☆☆☆"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:id="@+id/ButtonRateUs"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="60dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textSize="20dp"
+                    android:gravity="center"
+                    android:background="#F44336"
+                    android:textColor="#fff"
+                    android:layout_centerHorizontal="true" />
             <LinearLayout
-                android:layout_marginBottom="100dp"
+                android:layout_marginBottom="50dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </LinearLayout>

@@ -10,8 +10,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- AdMob ad unit IDs -->
     <string name="banner_home_footer">ca-app-pub-9002284518905519/9841016184</string>
-    <string name="banner_new_vehicle">ca-app-pub-9002284518905519/1011285388</string>
-    <string name="interstitial_full_screen">ca-app-pub-9002284518905519/2804246187</string>
+    <string name="interstitial_full_screen">ca-app-pub-9002284518905519/4058823383</string>
     <string name="puc_prompt">Select Vehicle Type</string>
 
 </resources>
