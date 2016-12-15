@@ -63,6 +63,12 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                              Bundle savedInstanceState) {
 //        ads_frag_new = (LinearLayout) getActivity().findViewById(R.id.new_frag_ads);
 //        ads_frag_new.setVisibility(View.GONE);
+        mAdView_new = new AdView(getActivity());
+        mAdView_new.setAdUnitId("ca-app-pub-9002284518905519/1011285388");
+        mAdView_new.setAdSize(AdSize.BANNER);
+        LinearLayout layoutrc = (LinearLayout) getActivity().findViewById(R.id.layout_admob_new);
+        layoutrc.addView(mAdView_new);
+        AdRequest adRequest_new = new AdRequest.Builder().build();
         interstitial = new InterstitialAd(getActivity());
         interstitial.setAdUnitId(getString(R.string.interstitial_full_screen));
         v = inflater.inflate(R.layout.fragment_new_vehicle, container, false);
@@ -141,7 +147,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
             try {
                 // Connect to website
                 Document document = Jsoup.connect(URL).timeout(15000).get();
-                //ho yesto bhaneko dai yee.. tyo ta server mai garnu paryo hoina kam ? timile vane anusar ... hmm dai ani sunnu na aws kati samma free ho? 1 instance run garchau vane 1 year samma 2 ota instance cha vane 6 months samma hmm 1euta instance ma jati ni host garna paiyo ni haina dai? payincha.. tara domain nai host garna chain route 52 lai pay garna parcha chuttai...hmmm ani k dai tyo public ip static ho ki dyanamic? ahile normally dynamic huncha..  but elastic ip lina milcha timile option huncha ni dashboard ma dekhko chau ? khai  sikai dinu ta dai kina vane ma tyo ip ma request garaune ho yo android app bata so Okay bro  aghi disconnect vayecha net nai .. khola ta dashboard
                 System.out.println(document);
                 finearray.clear();
                 int count = 0;
@@ -197,7 +202,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         mRecyclerView.setAdapter(mAdapter);
         violatedtext.setVisibility(View.VISIBLE);
         violatedtext.setText(VIOLATED + arrayoffine.size());
-        showad();
+        mAdView_new.loadAd(adRequest_new);
     }
     private ArrayList<DataObject> getDataSet(ArrayList<String> array_of_fine) {
         ArrayList results = new ArrayList<DataObject>();
@@ -207,15 +212,5 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
             results.add(index, obj);
         }
         return results;
-    }
-    public void  showad()
-    {
-        mAdView_new = new AdView(getActivity());
-        mAdView_new.setAdUnitId("ca-app-pub-9002284518905519/1011285388");
-        mAdView_new.setAdSize(AdSize.BANNER);
-        LinearLayout layoutrc = (LinearLayout) getActivity().findViewById(R.id.layout_admob_new);
-        layoutrc.addView(mAdView_new);
-        AdRequest adRequest_new = new AdRequest.Builder().build();
-        mAdView_new.loadAd(adRequest_new);
     }
 }
