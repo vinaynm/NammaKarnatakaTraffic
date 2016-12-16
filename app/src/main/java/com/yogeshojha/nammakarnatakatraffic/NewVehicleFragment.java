@@ -82,7 +82,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         interstitial = new InterstitialAd(getActivity());
         interstitial.setAdUnitId(getString(R.string.interstitial_full_screen));
         v = inflater.inflate(R.layout.fragment_new_vehicle, container, false);
-        adRequest = new AdRequest.Builder().addTestDevice("A526B528A785E1B56228B28C8F79CC11").build();
+        adRequest = new AdRequest.Builder().build();
         final Button new_submit_btn = (Button) v.findViewById(R.id.submit_new);
         ButtonPayFine = (Button) v.findViewById(R.id.ButtonPayFine);
         ButtonRateUs = (Button) v.findViewById(R.id.ButtonRateUs);
@@ -353,15 +353,13 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
             alertdFragment.show(fm, "Rate Us");
         }
         else
-        {   DateFormat dateFormats = new SimpleDateFormat("yyyy-MM-dd");
-            String current_dates = dateFormats.format(new Date());
+        {
             RateClass result = db.getRate(1);
             String daydb = result.get_lastshown().substring(8,10);
-            String currentdays = current_dates.substring(8,10);
+            String currentday = current_date.substring(8,10);
             Boolean bool;
-            bool = daydb != currentdays;
-            System.out.println(bool);
-            if(bool && (result.get_clickedon() == "no"))
+            bool = daydb.equals(currentday);
+            if(!bool && (result.get_clickedon().equals("no")))
             {
                 AlertDFragment alertdFragment = new AlertDFragment();
                 alertdFragment.show(fm, "Rate Us");
