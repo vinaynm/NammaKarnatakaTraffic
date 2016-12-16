@@ -1,7 +1,9 @@
 package com.yogeshojha.nammakarnatakatraffic;
 
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -62,6 +64,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     public Button ButtonPayFine;
     public Button ButtonRateUs;
     View v;
+    public FragmentManager fm;
     private int total;
     public static final String RupeeSymbol = "\u20B9";
     public static final String VIOLATED = "Total No of. Violations: ";
@@ -70,6 +73,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        fm = getActivity().getSupportFragmentManager();
         interstitial = new InterstitialAd(getActivity());
         interstitial.setAdUnitId(getString(R.string.interstitial_full_screen));
         v = inflater.inflate(R.layout.fragment_new_vehicle, container, false);
@@ -332,13 +336,10 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     }
     public void rateus_dialog()
     {
-        int minimum = 1, maximum = 2;
-        Random rn = new Random();
-        int range = maximum - minimum + 1;
-        int randomNum =  rn.nextInt(range) + minimum;
-        if(randomNum == 1)
-        {
+            DatabaseHandler db = new DatabaseHandler(getContext());
 
-        }
+            AlertDFragment alertdFragment = new AlertDFragment();
+            // Show Alert DialogFragment
+            alertdFragment.show(fm, "Rate Us");
     }
 }
