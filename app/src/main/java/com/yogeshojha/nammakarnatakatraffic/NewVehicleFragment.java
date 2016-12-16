@@ -149,6 +149,27 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
             }
 
         });
+        inputdtdstate.addTextChangedListener(new TextWatcher() {
+
+            public void onTextChanged(CharSequence s, int start,int before, int count)
+            {
+                // TODO Auto-generated method stub
+                if(inputdtdstate.getText().toString().length()==4)     //size as per your requirement
+                {
+                    new_submit_btn.performClick();
+                }
+            }
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+                // TODO Auto-generated method stub
+
+            }
+
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+            }
+
+        });
         inputdtdstate.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
