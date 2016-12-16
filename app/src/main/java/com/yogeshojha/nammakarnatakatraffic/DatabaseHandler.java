@@ -37,10 +37,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_RATE + "("
-                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_LASTSHOWN + " DATE,"
-                + KEY_LASTSHOWN + " TEXT" + ")";
-        db.execSQL(CREATE_CONTACTS_TABLE);
+        String CREATE_RATE_TABLE = "CREATE TABLE " + TABLE_RATE + "("
+                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_LASTSHOWN + " TEXT,"
+                + KEY_CLICKEDON + " TEXT" + ")";
+        db.execSQL(CREATE_RATE_TABLE);
     }
 
     // Upgrading database
@@ -56,7 +56,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_LASTSHOWN, rate.get_clickedon());
+        values.put(KEY_LASTSHOWN, rate.get_lastshown());
         values.put(KEY_CLICKEDON, rate.get_clickedon());
         // Inserting Row
         db.insert(TABLE_RATE, null, values);
@@ -78,11 +78,26 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
     // Getting contacts Count
     public int getRateCount() {
-        String countQuery = "SELECT  * FROM " + TABLE_RATE;
+        String countQuery = "SELECT * FROM " + TABLE_RATE;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
+        int count = cursor.getCount();
+
         cursor.close();
-        // return count
-        return cursor.getCount();
+        db.close();
+
+        return count ;
+
     }
+    // Updating rate
+    public int updateRate(RateClass rate) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_LASTSHOWN, rate.get_lastshown());
+        values.put(KEY_CLICKEDON, rate.get_clickedon());
+        // updating row
+        return db.update(TABLE_RATE, values, KEY_ID + " = ?",
+                new String[] { String.valueOf(rate.getID()) });
+    }
+
 }

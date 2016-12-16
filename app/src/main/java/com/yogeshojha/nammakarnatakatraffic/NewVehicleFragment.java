@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
@@ -36,7 +37,11 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -336,10 +341,32 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     }
     public void rateus_dialog()
     {
-            DatabaseHandler db = new DatabaseHandler(getContext());
-
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String current_date = dateFormat.format(new Date());
+        DatabaseHandler db = new DatabaseHandler(getContext());
+        int counnt_db = db.getRateCount();
+        System.out.println(counnt_db);
+        if (counnt_db == 0)
+        {
+            db.addRate(new RateClass(current_date,"no"));
             AlertDFragment alertdFragment = new AlertDFragment();
-            // Show Alert DialogFragment
             alertdFragment.show(fm, "Rate Us");
+        }
+        else
+        {   DateFormat dateFormats = new SimpleDateFormat("yyyy-MM-dd");
+            String current_dates = dateFormats.format(new Date());
+            RateClass result = db.getRate(1);
+            String daydb = result.get_lastshown().substring(8,10);
+            String currentdays = current_dates.substring(8,10);
+            Boolean bool;
+            bool = daydb != currentdays;
+            System.out.println(bool);
+            if(bool && (result.get_clickedon() == "no"))
+            {
+                AlertDFragment alertdFragment = new AlertDFragment();
+                alertdFragment.show(fm, "Rate Us");
+            }
+        }
+
     }
 }
