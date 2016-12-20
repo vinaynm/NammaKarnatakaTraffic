@@ -107,14 +107,6 @@ public class MainActivity extends AppCompatActivity
                         getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
                 setTitle("New Registration Traffic Violation");
-
-        } else if (id == R.id.nav_old_traffic) {
-            //set the fragments initially
-            OldVehicleFragment fragment = new OldVehicleFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("Old Registration Traffic Violation");
         } else if(id == R.id.nav_puc_check)
         {
             //set the fragments initially

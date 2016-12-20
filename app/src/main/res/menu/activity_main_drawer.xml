@@ -5,11 +5,7 @@
         <item
             android:id="@+id/nav_new_traffic"
             android:icon="@drawable/ic_car_xxl"
-            android:title="Traffic Violation(New Reg)" />
-        <item
-            android:id="@+id/nav_old_traffic"
-            android:icon="@drawable/ic_172040_200"
-            android:title="Traffic Violation(Old Reg)" />
+            android:title="Traffic Violation" />
         <item
             android:id="@+id/nav_puc_check"
             android:icon="@drawable/ic_exhaust"
