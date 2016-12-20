@@ -26,12 +26,15 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     NavigationView navigationView = null;
     Toolbar toolbar = null;
     private AdView mAdView;
+    AdRequest rcadRequest;
+    public InterstitialAd rcinterstitial;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +63,10 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //ads
+        rcinterstitial = new InterstitialAd(MainActivity.this);
+        rcinterstitial.setAdUnitId(getString(R.string.interstitial_reward));
+        rcadRequest = new AdRequest.Builder().build();
     }
 
     @Override
@@ -129,6 +136,10 @@ public class MainActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_rc_check)
         {
+            //full ad
+            //interstial ads
+            rcinterstitial.loadAd(rcadRequest);
+            rcinterstitial.show();
             //set the fragments initially
             VehicleRcFragment fragment = new VehicleRcFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
