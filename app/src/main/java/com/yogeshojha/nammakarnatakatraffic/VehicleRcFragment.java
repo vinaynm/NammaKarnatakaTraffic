@@ -31,7 +31,8 @@ public class VehicleRcFragment extends Fragment {
 
     private WebView mWebview;
     private ProgressBar mPbar = null;
-
+    private AdView mAdView_rc;
+    public AdRequest adRequest_rc;
     public VehicleRcFragment() {
         // Required empty public constructor
     }
@@ -42,6 +43,7 @@ public class VehicleRcFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_vehicle_rc, container, false);
+
         mWebview =  (WebView)v.findViewById(R.id.webview_rc);
         mPbar = (ProgressBar) v.findViewById(R.id.web_view_progress);
         mWebview.setVisibility(View.VISIBLE);
@@ -50,6 +52,13 @@ public class VehicleRcFragment extends Fragment {
         WebSettings webSettings = mWebview.getSettings();
         webSettings.setJavaScriptEnabled(true);
         mWebview.setWebViewClient(new rcWebViewClient());
+        mAdView_rc = new AdView(getActivity());
+        mAdView_rc.setAdUnitId("ca-app-pub-9002284518905519/4184430986");
+        mAdView_rc.setAdSize(AdSize.BANNER);
+        LinearLayout layoutrc = (LinearLayout) v.findViewById(R.id.layout_admob_rc);
+        layoutrc.addView(mAdView_rc);
+        AdRequest adRequest_rc = new AdRequest.Builder().build();
+        mAdView_rc.loadAd(adRequest_rc);
         return v;
 
     }

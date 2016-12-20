@@ -12,16 +12,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:layout_marginTop="40dp"
     tools:context="com.yogeshojha.nammakarnatakatraffic.MainActivity">
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:scrollbars="none"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
-        <WebView
-            android:id="@+id/webview_rc"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/layout_admob_rc"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </ScrollView>
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:scrollbars="none"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+                <WebView
+                    android:id="@+id/webview_rc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </WebView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"></LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
     <ProgressBar
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
@@ -30,4 +53,5 @@
         android:layout_centerVertical="true"
         android:layout_centerInParent="true"
         android:id="@+id/web_view_progress" />
+
 </RelativeLayout>
