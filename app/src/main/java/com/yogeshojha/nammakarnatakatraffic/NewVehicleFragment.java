@@ -100,7 +100,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
             public void onTextChanged(CharSequence s, int start,int before, int count)
             {
                 // TODO Auto-generated method stub
-                if(inputstate.getText().toString().length()==2)     //size as per your requirement
+                if(inputstate.getText().toString().length()==2)
                 {
                     inputdstate.requestFocus();
                 }
@@ -121,7 +121,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
             public void onTextChanged(CharSequence s, int start,int before, int count)
             {
                 // TODO Auto-generated method stub
-                if(inputdstate.getText().toString().length()==2)     //size as per your requirement
+                if(inputdstate.getText().toString().length()==2)
                 {
                     inputtdstate.requestFocus();
                 }
@@ -142,7 +142,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
             public void onTextChanged(CharSequence s, int start,int before, int count)
             {
                 // TODO Auto-generated method stub
-                if(inputtdstate.getText().toString().length()==2)     //size as per your requirement
+                if(inputtdstate.getText().toString().length()==2)
                 {
                     inputdtdstate.requestFocus();
                 }
@@ -163,7 +163,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
             public void onTextChanged(CharSequence s, int start,int before, int count)
             {
                 // TODO Auto-generated method stub
-                if(inputdtdstate.getText().toString().length()==4)     //size as per your requirement
+                if(inputdtdstate.getText().toString().length()==4)
                 {
                     new_submit_btn.performClick();
                 }
@@ -250,7 +250,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                 break;
         }
     }
-    public class FetchWebsiteData extends AsyncTask<Void, Void, Void>{
+    private class FetchWebsiteData extends AsyncTask<Void, Void, Void>{
         @Override
         public void onPreExecute() {
             super.onPreExecute();
