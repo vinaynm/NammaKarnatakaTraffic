@@ -179,16 +179,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
             }
 
         });
-        inputdtdstate.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    new_submit_btn.performClick();
-                    return true;
-                }
-                return false;
-            }
-        });
         return v;
     }
 
@@ -233,6 +223,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                     inputVehicleTextView.setText(ets);
 
                 } else {
+                    inputVehicleTextView.setVisibility(View.VISIBLE);
                     inputVehicleTextView.setTextColor(Color.parseColor("#757575"));
                     ets = "Vehicle No. : " + VehicleNo;
                     inputVehicleTextView.setText(ets);
@@ -319,7 +310,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         ButtonPayFine.setVisibility(View.VISIBLE);
         ButtonRateUs.setVisibility(View.VISIBLE);
         inputVehicleTextView.setVisibility(View.VISIBLE);
-        count++;
         finecards.setVisibility(View.VISIBLE);
         fineslistshow.setVisibility(View.GONE);
         mAdapter = new MyRecyclerViewAdapter(getDataSet(finearray));

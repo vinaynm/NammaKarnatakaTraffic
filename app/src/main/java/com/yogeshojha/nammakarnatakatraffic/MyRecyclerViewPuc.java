@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import java.util.ArrayList;
 
-public class MyRecyclerViewAdapter extends RecyclerView
-        .Adapter<MyRecyclerViewAdapter
+public class MyRecyclerViewPuc extends RecyclerView
+        .Adapter<MyRecyclerViewPuc
         .DataObjectHolder> {
     private ArrayList<DataObject> mDataset;
     private static MyClickListener myClickListener;
@@ -24,7 +24,7 @@ public class MyRecyclerViewAdapter extends RecyclerView
 
         public DataObjectHolder(View itemView) {
             super(itemView);
-            label = (TextView) itemView.findViewById(R.id.finedt);
+            label = (TextView) itemView.findViewById(R.id.pucdt);
             itemView.setOnClickListener(this);
         }
 
@@ -37,7 +37,7 @@ public class MyRecyclerViewAdapter extends RecyclerView
         this.myClickListener = myClickListener;
     }
 
-    public MyRecyclerViewAdapter(ArrayList<DataObject> myDataset) {
+    public MyRecyclerViewPuc(ArrayList<DataObject> myDataset) {
         mDataset = myDataset;
     }
 
@@ -45,7 +45,7 @@ public class MyRecyclerViewAdapter extends RecyclerView
     public DataObjectHolder onCreateViewHolder(ViewGroup parent,
                                                int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.card_view_row, parent, false);
+                .inflate(R.layout.card_view_row_puc, parent, false);
 
         DataObjectHolder dataObjectHolder = new DataObjectHolder(view);
         return dataObjectHolder;
