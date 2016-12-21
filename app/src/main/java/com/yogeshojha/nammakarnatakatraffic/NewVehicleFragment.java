@@ -80,7 +80,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                              Bundle savedInstanceState) {
         fm = getActivity().getSupportFragmentManager();
         interstitial = new InterstitialAd(getActivity());
-        interstitial.setAdUnitId(getString(R.string.interstitial_full_screen));
+        interstitial.setAdUnitId(getString(R.string.submit_onclick_new_frag));
         v = inflater.inflate(R.layout.fragment_new_vehicle, container, false);
         adRequest = new AdRequest.Builder().build();
         final Button new_submit_btn = (Button) v.findViewById(R.id.submit_new);
@@ -236,7 +236,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                     inputVehicleTextView.setTextColor(Color.parseColor("#757575"));
                     ets = "Vehicle No. : " + VehicleNo;
                     inputVehicleTextView.setText(ets);
-                    URL = "http://yogeshojha.com/karnatakatraffic/?1=" + inputstate.getText().toString()
+                    URL = "http://yogeshojha.com/nammakarnataka/violations.php/?1=" + inputstate.getText().toString()
                             + "&2=" + inputdstate.getText().toString()
                             + "&3=" + inputtdstate.getText().toString() + "&4=" + inputdtdstate.getText().toString();
                     new FetchWebsiteData().execute();

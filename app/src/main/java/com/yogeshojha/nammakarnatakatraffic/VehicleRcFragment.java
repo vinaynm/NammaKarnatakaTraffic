@@ -53,7 +53,7 @@ public class VehicleRcFragment extends Fragment {
         webSettings.setJavaScriptEnabled(true);
         mWebview.setWebViewClient(new rcWebViewClient());
         mAdView_rc = new AdView(getActivity());
-        mAdView_rc.setAdUnitId("ca-app-pub-9002284518905519/4184430986");
+        mAdView_rc.setAdUnitId(getResources().getString(R.string.rc_top_banner));
         mAdView_rc.setAdSize(AdSize.BANNER);
         LinearLayout layoutrc = (LinearLayout) v.findViewById(R.id.layout_admob_rc);
         layoutrc.addView(mAdView_rc);

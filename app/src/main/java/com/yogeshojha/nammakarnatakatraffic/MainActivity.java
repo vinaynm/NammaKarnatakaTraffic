@@ -65,8 +65,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         //ads
         rcinterstitial = new InterstitialAd(MainActivity.this);
-        rcinterstitial.setAdUnitId(getString(R.string.interstitial_reward));
-        rcadRequest = new AdRequest.Builder().build();
+        rcinterstitial.setAdUnitId(getString(R.string.rc_nav_onclick));
+        rcadRequest = new AdRequest.Builder().addTestDevice("A526B528A785E1B56228B28C8F79CC11").build();
     }
 
     @Override
