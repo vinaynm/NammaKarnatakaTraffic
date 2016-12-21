@@ -170,6 +170,18 @@
                         android:gravity="center"
                         android:visibility="gone"
                         android:id="@+id/puc_inputVehicle" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:textSize="18dp"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        android:id="@+id/nopuc" />
                     </LinearLayout>
             </LinearLayout>
             <LinearLayout

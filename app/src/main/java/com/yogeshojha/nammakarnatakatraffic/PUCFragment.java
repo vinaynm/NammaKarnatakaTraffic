@@ -50,6 +50,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
     private EditText puc_inputtdstate;
     public EditText puc_inputdtdstate;
     private Handler puc_handler;
+    public TextView puclistshow;
     public LinearLayout pucCards;
     private Spinner puc_veh_type_spinner;
     private String VehicleNo;
@@ -155,6 +156,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
         return v;
     }
     public void onClick(View v) {
+        puclistshow = (TextView) getActivity().findViewById(R.id.nopuc);
         //set cards
         mRecyclerView = (RecyclerView) getActivity().findViewById(R.id.puc_rec);
         mRecyclerView.setHasFixedSize(true);
@@ -246,7 +248,27 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                 }
                 else
                 {
-
+                    for (Element table : document.select("table.diesel")) {
+                        for (Element row : table.select("tr"))
+                        {
+                            Elements tds = row.select("td");
+                            if (tds.size() > 0 ) {
+                                pucdetails = "Pucc No: " + tds.get(0).text() + "\n" +
+                                        "Make: " + tds.get(2).text() + "\n"+
+                                        "Category: " + tds.get(3).text() + "\n"+
+                                        "Tested on: " + tds.get(5).text() + " " + tds.get(6).text() + "\n"+
+                                        "Validity: " + tds.get(7).text() + "\n"+
+                                        "HSU Mean: " + tds.get(8).text() + "\n"+
+                                        "K Mean: " + tds.get(9).text() + "\n"+
+                                        "Oil Temp Mean: " + tds.get(10).text() + "\n"+
+                                        "RPM Max Mean: " + tds.get(11).text() + "\n"+
+                                        "RPM Min Mean: " + tds.get(12).text() + "\n"+
+                                        "Result: " + tds.get(13).text()+"ed" + "\n"
+                                ;
+                                pucarray.add(pucdetails);
+                            }
+                        }
+                    }
                 }
             } catch (IOException e) {
                 System.out.println("Failed");
@@ -271,10 +293,13 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
     public void pucnotfound()
     {
         mRecyclerView.setVisibility(View.GONE);
-
+        puclistshow.setVisibility(View.VISIBLE);
+        puclistshow.setTextColor(Color.parseColor("#3F51B5"));
+        puclistshow.setText("Sorry No records found, please check your vehicle number or Vehicle Type. Ensure either Petrol Vehicle or Diesel Vehicle is checked.");
     }
     public void pucfound(ArrayList<String> arrayofpuc)
     {
+        puclistshow.setVisibility(View.GONE);
         finecards.setVisibility(View.VISIBLE);
         mAdapter = new MyRecyclerViewPuc(getDataSet(arrayofpuc));
         mRecyclerView.setVisibility(View.VISIBLE);
