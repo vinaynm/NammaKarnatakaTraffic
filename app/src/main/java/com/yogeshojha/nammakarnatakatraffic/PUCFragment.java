@@ -2,7 +2,9 @@ package com.yogeshojha.nammakarnatakatraffic;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -61,6 +63,8 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
     private AdView mAdView_puc;
     public LinearLayout finecards;
     ProgressDialog pucProgressDialog;
+    private Button downloadcert;
+    private String pid;
     public final ArrayList<String> pucarray = new ArrayList<String>();
 
     @Override
@@ -86,6 +90,8 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
         //
         final Button puc_submit_btn = (Button) v.findViewById(R.id.puc_submit);
         puc_submit_btn.setOnClickListener(this);
+        downloadcert = (Button) v.findViewById(R.id.Buttondownloadpuc);
+        downloadcert.setOnClickListener(this);
         puc_inputstate = (EditText) v.findViewById(R.id.puc_stateka);
         puc_inputdstate = (EditText) v.findViewById(R.id.puc_asd);
         puc_inputtdstate = (EditText) v.findViewById(R.id.puc_asdt);
@@ -202,6 +208,10 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                     new FetchPucDetails().execute();
                 }
                     break;
+            case R.id.Buttondownloadpuc:
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse
+                        ("http://www.karnatakapuc.in/"+pid.charAt(0)+"_test.aspx?Spuc="+pid+"&flag=1")));
+                break;
         }
     }
     private class FetchPucDetails extends AsyncTask<Void, Void, Void> {
@@ -242,8 +252,10 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                                         " G_CO: " + tds.get(17).text() + " G_HCM: " + tds.get(18).text() + "\n" +
                                         "Result: " + tds.get(19).text()+"ed" + "\n"  ;
                                 pucarray.add(pucdetails);
+                                pid = tds.get(0).text();
                             }
                         }
+
                     }
                 }
                 else
@@ -266,6 +278,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                                         "Result: " + tds.get(13).text()+"ed" + "\n"
                                 ;
                                 pucarray.add(pucdetails);
+                                pid = tds.get(0).text();
                             }
                         }
                     }
@@ -292,6 +305,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
     }
     public void pucnotfound()
     {
+        downloadcert.setVisibility(View.GONE);
         mRecyclerView.setVisibility(View.GONE);
         puclistshow.setVisibility(View.VISIBLE);
         puclistshow.setTextColor(Color.parseColor("#3F51B5"));
@@ -299,6 +313,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
     }
     public void pucfound(ArrayList<String> arrayofpuc)
     {
+        downloadcert.setVisibility(View.VISIBLE);
         puclistshow.setVisibility(View.GONE);
         finecards.setVisibility(View.VISIBLE);
         mAdapter = new MyRecyclerViewPuc(getDataSet(arrayofpuc));

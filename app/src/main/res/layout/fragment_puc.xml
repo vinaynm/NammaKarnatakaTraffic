@@ -196,11 +196,25 @@
                     android:layout_height="wrap_content"
                     android:scrollbars="vertical"/>
             </LinearLayout>
+            <Button
+                android:visibility="gone"
+                android:text="Download Certificate"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:id="@+id/Buttondownloadpuc"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="60dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:background="#2196F3"
+                android:textColor="#fff"
+                android:layout_centerHorizontal="true" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"></LinearLayout>
         </LinearLayout>
-
     </ScrollView>
 
 </RelativeLayout>
