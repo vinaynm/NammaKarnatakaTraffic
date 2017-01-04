@@ -4,6 +4,7 @@ package com.yogeshojha.nammakarnatakatraffic;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import java.text.SimpleDateFormat;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -37,7 +38,11 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -66,7 +71,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
     private Button downloadcert;
     private String pid;
     public final ArrayList<String> pucarray = new ArrayList<String>();
-
+    private Map<String, String> date_pid = new HashMap<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -209,8 +214,33 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                 }
                     break;
             case R.id.Buttondownloadpuc:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse
-                        ("http://www.karnatakapuc.in/"+pid.charAt(0)+"_test.aspx?Spuc="+pid+"&flag=1")));
+                //System.out.println(date_pid);
+                String[] keys = new String[date_pid.size()];
+                String[] values = new String[date_pid.size()];
+                int index = 0;
+                for (Map.Entry<String, String> mapEntry : date_pid.entrySet()) {
+                    keys[index] = mapEntry.getKey();
+                    values[index] = mapEntry.getValue();
+                    index++;
+                }
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+                String dateInString;
+                String tempdate;
+                Date[] datearray = new Date[keys.length];
+                for(int j = 0; j < keys.length; j++) {
+                    tempdate = keys[j];
+                    dateInString = tempdate.replaceAll("\\s+", "-");
+                    try {
+                        Date date = formatter.parse(dateInString);
+                        datearray[j] = date;
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+                System.out.println(datearray);
+//                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse
+//                        ("http://www.karnatakapuc.in/"+pid.charAt(0)+"_test.aspx?Spuc="+pid+"&flag=1")));
+
                 break;
         }
     }
@@ -232,6 +262,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                 pucarray.clear();
                 if (veh_type_string.equals("Petrol Vehicle"))
                 {
+                    date_pid.clear();
                     for (Element table : document.select("table.petrol")) {
                         for (Element row : table.select("tr"))
                         {
@@ -252,7 +283,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                                         " G_CO: " + tds.get(17).text() + " G_HCM: " + tds.get(18).text() + "\n" +
                                         "Result: " + tds.get(19).text()+"ed" + "\n"  ;
                                 pucarray.add(pucdetails);
-                                pid = tds.get(0).text();
+                                date_pid.put(tds.get(12).text(),tds.get(0).text());
                             }
                         }
 
@@ -260,6 +291,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                 }
                 else
                 {
+                    date_pid.clear();
                     for (Element table : document.select("table.diesel")) {
                         for (Element row : table.select("tr"))
                         {
@@ -278,7 +310,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                                         "Result: " + tds.get(13).text()+"ed" + "\n"
                                 ;
                                 pucarray.add(pucdetails);
-                                pid = tds.get(0).text();
+                                date_pid.put(tds.get(7).text(),tds.get(0).text());
                             }
                         }
                     }
