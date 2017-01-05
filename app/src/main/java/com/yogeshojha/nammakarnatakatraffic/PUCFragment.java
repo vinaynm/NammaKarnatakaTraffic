@@ -40,8 +40,10 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -72,6 +74,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
     private String pid;
     public final ArrayList<String> pucarray = new ArrayList<String>();
     private Map<String, String> date_pid = new HashMap<>();
+    private List<Date> dates_list = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -226,18 +229,20 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
                 String dateInString;
                 String tempdate;
-                Date[] datearray = new Date[keys.length];
+                dates_list.clear();
                 for(int j = 0; j < keys.length; j++) {
                     tempdate = keys[j];
                     dateInString = tempdate.replaceAll("\\s+", "-");
                     try {
                         Date date = formatter.parse(dateInString);
-                        datearray[j] = date;
+                        dates_list.add(date);
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
                 }
-                System.out.println(datearray);
+                String latestdate;
+                latestdate = formatter.format(Collections.max(dates_list));
+                System.out.println("THe max date is: " + formatter.format(Collections.max(dates_list)));
 //                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse
 //                        ("http://www.karnatakapuc.in/"+pid.charAt(0)+"_test.aspx?Spuc="+pid+"&flag=1")));
 
@@ -283,7 +288,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                                         " G_CO: " + tds.get(17).text() + " G_HCM: " + tds.get(18).text() + "\n" +
                                         "Result: " + tds.get(19).text()+"ed" + "\n"  ;
                                 pucarray.add(pucdetails);
-                                date_pid.put(tds.get(12).text(),tds.get(0).text());
+                                date_pid.put(tds.get(10).text(),tds.get(0).text());
                             }
                         }
 
@@ -310,7 +315,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                                         "Result: " + tds.get(13).text()+"ed" + "\n"
                                 ;
                                 pucarray.add(pucdetails);
-                                date_pid.put(tds.get(7).text(),tds.get(0).text());
+                                date_pid.put(tds.get(5).text(),tds.get(0).text());
                             }
                         }
                     }
