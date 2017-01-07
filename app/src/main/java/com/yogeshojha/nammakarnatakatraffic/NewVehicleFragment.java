@@ -30,6 +30,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -68,6 +70,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     public LinearLayout amountLayout;
     public Button ButtonPayFine;
     public Button ButtonRateUs;
+    private AdView mAdView_traffic_fine;
     View v;
     public FragmentManager fm;
     private int total;
@@ -78,10 +81,20 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //ads init but not display for first time
+
         fm = getActivity().getSupportFragmentManager();
         interstitial = new InterstitialAd(getActivity());
         interstitial.setAdUnitId(getString(R.string.submit_onclick_new_frag));
         v = inflater.inflate(R.layout.fragment_new_vehicle, container, false);
+        //ads
+        //banner ads
+        mAdView_traffic_fine = new AdView(getActivity());
+        mAdView_traffic_fine.setAdUnitId(getResources().getString(R.string.traffic_fine));
+        mAdView_traffic_fine.setAdSize(AdSize.BANNER);
+        LinearLayout layoutnew = (LinearLayout) v.findViewById(R.id.layout_admob_traffic_fine);
+        layoutnew.addView(mAdView_traffic_fine);
+        //
         adRequest = new AdRequest.Builder().build();
         final Button new_submit_btn = (Button) v.findViewById(R.id.submit_new);
         ButtonPayFine = (Button) v.findViewById(R.id.ButtonPayFine);
@@ -202,6 +215,9 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         total = 0;
         switch (v.getId()) {
             case R.id.submit_new:
+                //load ads
+                AdRequest adRequest_traffic = new AdRequest.Builder().build();
+                mAdView_traffic_fine.loadAd(adRequest_traffic);
                 String ets;
                 VehicleNo = inputstate.getText().toString().toUpperCase() + "-" +
                         inputdstate.getText().toString().toUpperCase() +

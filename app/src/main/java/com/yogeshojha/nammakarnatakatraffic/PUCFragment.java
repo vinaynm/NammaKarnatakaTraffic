@@ -182,6 +182,8 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
         inputVehicleTextView.setVisibility(View.VISIBLE);
         switch (v.getId()) {
             case R.id.puc_submit:
+                AdRequest adRequest_rc = new AdRequest.Builder().build();
+                mAdView_puc.loadAd(adRequest_rc);
                 veh_type_string = puc_veh_type_spinner.getSelectedItem().toString();
                 String ets;
                 VehicleNo = puc_inputstate.getText().toString().toUpperCase() + "-" +
@@ -217,7 +219,6 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                 }
                     break;
             case R.id.Buttondownloadpuc:
-                //System.out.println(date_pid);
                 String[] keys = new String[date_pid.size()];
                 String[] values = new String[date_pid.size()];
                 int index = 0;
@@ -226,7 +227,14 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                     values[index] = mapEntry.getValue();
                     index++;
                 }
-                SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+                SimpleDateFormat formatter;
+                if (pid.charAt(0) == 'D') {
+                    formatter = new SimpleDateFormat("dd-MMM-yyyy");
+                }
+                else
+                {
+                    formatter = new SimpleDateFormat("dd-MM-yyyy");
+                }
                 String dateInString;
                 String tempdate;
                 dates_list.clear();
@@ -242,10 +250,13 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                 }
                 String latestdate;
                 latestdate = formatter.format(Collections.max(dates_list));
-                System.out.println("THe max date is: " + formatter.format(Collections.max(dates_list)));
-//                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse
-//                        ("http://www.karnatakapuc.in/"+pid.charAt(0)+"_test.aspx?Spuc="+pid+"&flag=1")));
-
+                if(pid.charAt(0) == 'D')
+                {
+                    latestdate = latestdate.replaceAll("-"," ");
+                }
+                String getkey = date_pid.get(latestdate);
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse
+                        ("http://www.karnatakapuc.in/"+getkey.charAt(0)+"_test.aspx?Spuc="+getkey+"&flag=1")));
                 break;
         }
     }
@@ -289,6 +300,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                                         "Result: " + tds.get(19).text()+"ed" + "\n"  ;
                                 pucarray.add(pucdetails);
                                 date_pid.put(tds.get(10).text(),tds.get(0).text());
+                                pid = tds.get(0).text();
                             }
                         }
 
@@ -316,6 +328,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                                 ;
                                 pucarray.add(pucdetails);
                                 date_pid.put(tds.get(5).text(),tds.get(0).text());
+                                pid = tds.get(0).text();
                             }
                         }
                     }

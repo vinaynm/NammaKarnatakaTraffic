@@ -141,6 +141,13 @@
                         android:background="#3F51B5"
                         android:textColor="#fff"
                         android:layout_centerHorizontal="true" />
+                    <LinearLayout
+                        android:id="@+id/layout_admob_traffic_fine"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
                 </LinearLayout>
 
                 <LinearLayout
