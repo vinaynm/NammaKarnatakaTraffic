@@ -41,7 +41,7 @@ public class GalleryImageAdapterCaution extends BaseAdapter{
         ImageView i = new ImageView(mContext);
 
         i.setImageResource(mImageIds[index]);
-        i.setLayoutParams(new Gallery.LayoutParams(80, 80));
+        i.setLayoutParams(new Gallery.LayoutParams(120, 120));
 
         i.setScaleType(ImageView.ScaleType.FIT_XY);
 

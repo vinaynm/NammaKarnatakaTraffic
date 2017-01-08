@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity
                     "Namma Karnataka Traffic helps you check traffic violations, view RTO details, check driving license status, check PUC status and many more." +
                     "\nYou can now practice LL test too!!!\n" +
                     "In a nutshell Namma Karnataka Traffic is a RTO in your Pocket\n" +
-                    "Developer: Yogesh Ojha\nEmail: yogesh@linux.com\nWebsite:http://yogeshojha.com");
+                    "Developer: Yogesh Ojha\nEmail: yogesh@linux.com\nWebsite:http://yogeshojha.com\nImages credits: Freepik, Unsplash");
             alertDialog.setIcon(R.drawable.traffic);
             alertDialog.setPositiveButton("Visit Website", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {

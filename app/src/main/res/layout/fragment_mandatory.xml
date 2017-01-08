@@ -26,9 +26,10 @@
                     >
                     <ImageView
                         android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
+                        android:scaleType="fitXY"
                         android:layout_gravity="center_horizontal"
-                        android:layout_height="100dp"
+                        android:layout_height="150dp"
                         android:src="@drawable/mandatory1" />
                     <ImageView
                         android:layout_weight="1"

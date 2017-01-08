@@ -1,6 +1,7 @@
 package com.yogeshojha.nammakarnatakatraffic;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -13,7 +14,6 @@ import android.widget.ImageView;
 
 public class GalleryImageAdapterInformatory extends BaseAdapter{
     private Context mContext;
-
 
 
     public GalleryImageAdapterInformatory(Context context)
@@ -37,10 +37,42 @@ public class GalleryImageAdapterInformatory extends BaseAdapter{
     // Override this method according to your need
     public View getView(int index, View view, ViewGroup viewGroup)
     {
+//        int length,width;
+//        Float density = mContext.getResources().getDisplayMetrics().density;
+//        System.out.println(density);
+//        if(density >=0 && density <= 0.75)
+//        {
+//            length = width = 75;
+//        }
+//        else if(density > 0.75 && density <= 1.0)
+//        {
+//            length = width = 100;
+//        }
+//        else if(density > 1.0 && density <= 1.5)
+//        {
+//            length = width = 130;
+//        }
+//        else if(density > 1.5 && density <= 2.0)
+//        {
+//            length = width = 140;
+//        }
+//        else if(density > 2.0 && density <= 3.0)
+//        {
+//            length = width = 200;
+//        }
+//        else if(density > 3.0 && density <= 4.0)
+//        {
+//            length = width = 200;
+//        }
+//        else
+//        {
+//            length = width = 100;
+//
+//        }
         // TODO Auto-generated method stub
         ImageView i = new ImageView(mContext);
         i.setImageResource(mImageIds[index]);
-        i.setLayoutParams(new Gallery.LayoutParams(80, 80));
+        i.setLayoutParams(new Gallery.LayoutParams(100, 100));
         i.setScaleType(ImageView.ScaleType.FIT_XY);
 
         return i;
