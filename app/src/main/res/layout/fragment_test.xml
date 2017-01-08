@@ -17,7 +17,7 @@
         android:orientation="vertical"
         android:layout_height="match_parent">
         <LinearLayout
-            android:id="@+id/layout_admob_dl"
+            android:id="@+id/layout_admob_test"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                 android:orientation="vertical"
                 android:layout_height="match_parent">
                 <WebView
-                    android:id="@+id/webview_dl"
+                    android:id="@+id/webview_test"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 </WebView>
@@ -52,6 +52,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_centerInParent="true"
-        android:id="@+id/web_view_progress_dl" />
+        android:id="@+id/web_view_progress_test" />
 
 </RelativeLayout>

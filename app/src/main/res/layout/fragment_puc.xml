@@ -192,7 +192,7 @@
                 android:id="@+id/pucdetailslist">
                 <Button
                     android:visibility="gone"
-                    android:text="Download Certificate"
+                    android:text="Download Certificate ⚡"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:id="@+id/Buttondownloadpuc"

@@ -26,10 +26,10 @@
             <!--android:id="@+id/nav_questionbank"-->
             <!--android:icon="@drawable/ic_519660_164_questionmark_512"-->
             <!--android:title="LL Question Bank" />-->
-        <!--<item-->
-            <!--android:id="@+id/nav_ll_test"-->
-            <!--android:icon="@drawable/ic_question_icon_79660"-->
-            <!--android:title="LL Test Practice" />-->
+        <item
+            android:id="@+id/nav_ll_test"
+            android:icon="@drawable/ic_question_icon_79660"
+            android:title="LL Test Practice" />
 
     </group>
 

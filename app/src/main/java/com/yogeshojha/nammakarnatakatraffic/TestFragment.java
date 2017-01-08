@@ -1,9 +1,8 @@
 package com.yogeshojha.nammakarnatakatraffic;
 
-
-import android.app.ProgressDialog;
+import android.content.Context;
 import android.graphics.Bitmap;
-import android.os.Build;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,49 +18,38 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
-import static android.os.Build.HOST;
-import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
-import static android.provider.Telephony.Carriers.PASSWORD;
-
-
-/**
- * A simple {@link Fragment} subclass.
- */
-public class VehicleRcFragment extends Fragment {
-
+public class TestFragment extends Fragment {
     private WebView mWebview;
     private ProgressBar mPbar = null;
-    private AdView mAdView_rc;
-    public VehicleRcFragment() {
+    private AdView mAdView_test;
+    public TestFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.fragment_vehicle_rc, container, false);
+        View v =  inflater.inflate(R.layout.fragment_test, container, false);
 
-        mWebview =  (WebView)v.findViewById(R.id.webview_rc);
-        mPbar = (ProgressBar) v.findViewById(R.id.web_view_progress);
+        mWebview =  (WebView)v.findViewById(R.id.webview_test);
+        mPbar = (ProgressBar) v.findViewById(R.id.web_view_progress_test);
         mWebview.setVisibility(View.VISIBLE);
-        mWebview.loadUrl("http://parivahan.gov.in/rcdlstatus");
+        mWebview.loadUrl("https://parivahan.gov.in/rcdlstatus/?pur_cd=101");
         // Enable Javascript
         WebSettings webSettings = mWebview.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        mWebview.setWebViewClient(new rcWebViewClient());
-        mAdView_rc = new AdView(getActivity());
-        mAdView_rc.setAdUnitId(getResources().getString(R.string.rc_top_banner));
-        mAdView_rc.setAdSize(AdSize.BANNER);
-        LinearLayout layoutrc = (LinearLayout) v.findViewById(R.id.layout_admob_rc);
-        layoutrc.addView(mAdView_rc);
+        mWebview.setWebViewClient(new testWebViewClient());
+        mAdView_test = new AdView(getActivity());
+        mAdView_test.setAdUnitId(getResources().getString(R.string.quiz_banner));
+        mAdView_test.setAdSize(AdSize.BANNER);
+        LinearLayout layoutrc = (LinearLayout) v.findViewById(R.id.layout_admob_dl);
+        layoutrc.addView(mAdView_test);
         AdRequest adRequest_rc = new AdRequest.Builder().build();
-        mAdView_rc.loadAd(adRequest_rc);
+        mAdView_test.loadAd(adRequest_rc);
         return v;
-
     }
-    private class rcWebViewClient extends WebViewClient
+    private class testWebViewClient extends WebViewClient
     {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -71,5 +59,4 @@ public class VehicleRcFragment extends Fragment {
             mPbar.setVisibility(View.GONE);
         }
     }
-
 }

@@ -165,15 +165,15 @@ public class MainActivity extends AppCompatActivity
 //            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
 //            setTitle("Learner's Licence Question Bank");
 //        }
-//        else if(id == R.id.nav_ll_test)
-//        {
-//            //set the fragments initially
-//            TestFragment fragment = new TestFragment();
-//            android.support.v4.app.FragmentTransaction fragmentTransaction =
-//                    getSupportFragmentManager().beginTransaction();
-//            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-//            setTitle("Learner's Licence Practice Test");
-//        }
+        else if(id == R.id.nav_ll_test)
+        {
+            //set the fragments initially
+            TestFragment fragment = new TestFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+            setTitle("Learner's Licence Practice Test");
+        }
         else if(id == R.id.nav_about_us)
         {
             //set the fragments initially
