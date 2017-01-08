@@ -147,24 +147,33 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
             setTitle("Vehicle RC Status");
         }
-//        else if(id == R.id.nav_news)
-//        {
-//            //set the fragments initially
-//            NewsFragment fragment = new NewsFragment();
-//            android.support.v4.app.FragmentTransaction fragmentTransaction =
-//                    getSupportFragmentManager().beginTransaction();
-//            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-//            setTitle("News and Notices");
-//        }
-//        else if(id == R.id.nav_questionbank)
-//        {
-//            //set the fragments initially
-//            QuestionBankFragment fragment = new QuestionBankFragment();
-//            android.support.v4.app.FragmentTransaction fragmentTransaction =
-//                    getSupportFragmentManager().beginTransaction();
-//            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-//            setTitle("Learner's Licence Question Bank");
-//        }
+        else if(id == R.id.cautionary_sign)
+        {
+            //set the fragments initially
+            cautionary fragment = new cautionary();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+            setTitle("Cautionary Signs");
+        }
+        else if(id == R.id.mandatory_sign)
+        {
+            //set the fragments initially
+            mandatory fragment = new mandatory();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+            setTitle("Mandatory Signs");
+        }
+        else if(id == R.id.informatory_sign)
+        {
+            //set the fragments initially
+            informatory fragment = new informatory();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+            setTitle("Mandatory Signs");
+        }
         else if(id == R.id.nav_ll_test)
         {
             //set the fragments initially
