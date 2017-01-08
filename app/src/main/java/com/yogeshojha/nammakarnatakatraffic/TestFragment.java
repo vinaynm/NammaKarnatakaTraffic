@@ -35,7 +35,7 @@ public class TestFragment extends Fragment {
         mWebview =  (WebView)v.findViewById(R.id.webview_test);
         mPbar = (ProgressBar) v.findViewById(R.id.web_view_progress_test);
         mWebview.setVisibility(View.VISIBLE);
-        mWebview.loadUrl("https://parivahan.gov.in/rcdlstatus/?pur_cd=101");
+        mWebview.loadUrl("https://parivahan.gov.in/sarathiservice/stalllogin.do");
         // Enable Javascript
         WebSettings webSettings = mWebview.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -43,7 +43,7 @@ public class TestFragment extends Fragment {
         mAdView_test = new AdView(getActivity());
         mAdView_test.setAdUnitId(getResources().getString(R.string.quiz_banner));
         mAdView_test.setAdSize(AdSize.BANNER);
-        LinearLayout layoutrc = (LinearLayout) v.findViewById(R.id.layout_admob_dl);
+        LinearLayout layoutrc = (LinearLayout) v.findViewById(R.id.layout_admob_test);
         layoutrc.addView(mAdView_test);
         AdRequest adRequest_rc = new AdRequest.Builder().build();
         mAdView_test.loadAd(adRequest_rc);
