@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     Toolbar toolbar = null;
     private AdView mAdView;
     AdRequest rcadRequest;
+    private FirebaseAnalytics mFirebaseAnalytics;
     public InterstitialAd rcinterstitial;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity
             AdRequest adRequest = new AdRequest.Builder()
                     .build();
             mAdView.loadAd(adRequest);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         //set the fragments initially
         NewVehicleFragment fragment = new NewVehicleFragment();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
@@ -71,19 +74,19 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
+        new AlertDialog.Builder(this)
+                .setTitle("Exiting App")
+                .setMessage("Are you sure you want exit?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 
     @Override

@@ -11,8 +11,10 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Telephony;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -74,6 +76,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     View v;
     public FragmentManager fm;
     private int total;
+    private boolean flag = true;
     public static final String RupeeSymbol = "\u20B9";
     public static final String VIOLATED = "Total No of. Violations: ";
     public static final String No_FINE = "No Traffic Violations has been recorded for this vehicle number.\nHave a Happy and Safe ride";
@@ -81,6 +84,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         //ads init but not display for first time
 
         fm = getActivity().getSupportFragmentManager();
@@ -291,8 +295,9 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                         count++;
                     }
                 }
+                flag = true;
             } catch (IOException e) {
-                e.printStackTrace();
+                flag = false;
             }
             return null;
         }
@@ -311,14 +316,21 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     }
     public void nofines(String response)
     {
-        rateus_dialog();
-        ButtonRateUs.setVisibility(View.VISIBLE);
-        violatedtext.setVisibility(View.GONE);
-        mRecyclerView.setVisibility(View.GONE);
-        inputVehicleTextView.setVisibility(View.VISIBLE);
-        fineslistshow.setVisibility(View.VISIBLE);
-        fineslistshow.setTextColor(Color.parseColor("#3F51B5"));
-        fineslistshow.setText(response);
+        if(!flag)
+        {
+            Toast.makeText(v.getContext(), "ERROR, Server not responding, Please check your connection",
+                    Toast.LENGTH_LONG).show();
+        }
+        else {
+            rateus_dialog();
+            ButtonRateUs.setVisibility(View.VISIBLE);
+            violatedtext.setVisibility(View.GONE);
+            mRecyclerView.setVisibility(View.GONE);
+            inputVehicleTextView.setVisibility(View.VISIBLE);
+            fineslistshow.setVisibility(View.VISIBLE);
+            fineslistshow.setTextColor(Color.parseColor("#3F51B5"));
+            fineslistshow.setText(response);
+        }
     }
     public void fineexist(ArrayList<String> arrayoffine, int TotalAmt)
     {
@@ -351,7 +363,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         String current_date = dateFormat.format(new Date());
         DatabaseHandler db = new DatabaseHandler(getContext());
         int counnt_db = db.getRateCount();
-        System.out.println(counnt_db);
         if (counnt_db == 0)
         {
             db.addRate(new RateClass(current_date,"no"));

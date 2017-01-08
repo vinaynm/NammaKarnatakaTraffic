@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "941908288021",
+    "firebase_url": "https://nammakarnataka-32e9a.firebaseio.com",
+    "project_id": "nammakarnataka-32e9a",
+    "storage_bucket": "nammakarnataka-32e9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:941908288021:android:36dcaee9421e01ed",
+        "android_client_info": {
+          "package_name": "com.yogeshojha.nammakarnatakatraffic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "941908288021-f40dr4ol3p9lvo58nua1qo9taun0vs33.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yogeshojha.nammakarnatakatraffic",
+            "certificate_hash": "D24A43DE9524A1DA874D09C08D869E997D3BD3C3"
+          }
+        },
+        {
+          "client_id": "941908288021-fe3hjgiuk4k17v0irab5lll10cm9g3b0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZJDaQyJZ3HsVTeJ5N0b9ti6B2lpI3vsA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "941908288021-fe3hjgiuk4k17v0irab5lll10cm9g3b0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

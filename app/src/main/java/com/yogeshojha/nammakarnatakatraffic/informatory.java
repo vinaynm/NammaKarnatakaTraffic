@@ -24,7 +24,7 @@ public class informatory extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_mandatory, container, false);
         Gallery gallery = (Gallery) v.findViewById(R.id.gallery);
-        selectedImage=(ImageView) v.findViewById(R.id.imageView);
+            selectedImage=(ImageView) v.findViewById(R.id.imageView);
         gallery.setSpacing(1);
         final GalleryImageAdapterInformatory GalleryImageAdapterInformatory= new GalleryImageAdapterInformatory(getActivity());
         gallery.setAdapter(GalleryImageAdapterInformatory);

@@ -70,15 +70,17 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
     private AdView mAdView_puc;
     public LinearLayout finecards;
     ProgressDialog pucProgressDialog;
+    private boolean flag = true;
     private Button downloadcert;
     private String pid;
+    View v;
     public final ArrayList<String> pucarray = new ArrayList<String>();
     private Map<String, String> date_pid = new HashMap<>();
     private List<Date> dates_list = new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_puc, container, false);
+        v = inflater.inflate(R.layout.fragment_puc, container, false);
         //spinner
         puc_handler = new Handler();
         puc_veh_type_spinner = (Spinner) v.findViewById(R.id.puc_spinner_layout_veh_type);
@@ -214,7 +216,6 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                             + "&2=" + puc_inputdstate.getText().toString()
                             + "&3=" + puc_inputtdstate.getText().toString() + "&4=" + puc_inputdtdstate.getText().toString()
                             +"&type="+veh_type_string.charAt(0);
-                    System.out.println(URL);
                     new FetchPucDetails().execute();
                 }
                     break;
@@ -333,9 +334,9 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                         }
                     }
                 }
+                flag = true;
             } catch (IOException e) {
-                System.out.println("Failed");
-                e.printStackTrace();
+                flag = false;
             }
             return null;
         }
@@ -355,11 +356,18 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
     }
     public void pucnotfound()
     {
-        downloadcert.setVisibility(View.GONE);
-        mRecyclerView.setVisibility(View.GONE);
-        puclistshow.setVisibility(View.VISIBLE);
-        puclistshow.setTextColor(Color.parseColor("#3F51B5"));
-        puclistshow.setText("Sorry No records found, please check your vehicle number or Vehicle Type. Ensure either Petrol Vehicle or Diesel Vehicle is checked.");
+        if(!flag)
+        {
+            Toast.makeText(v.getContext(), "ERROR, Server not responding, Please check your connection",
+                    Toast.LENGTH_LONG).show();
+        }
+        else {
+            downloadcert.setVisibility(View.GONE);
+            mRecyclerView.setVisibility(View.GONE);
+            puclistshow.setVisibility(View.VISIBLE);
+            puclistshow.setTextColor(Color.parseColor("#3F51B5"));
+            puclistshow.setText("Sorry No records found, please check your vehicle number or Vehicle Type. Ensure either Petrol Vehicle or Diesel Vehicle is checked.");
+        }
     }
     public void pucfound(ArrayList<String> arrayofpuc)
     {

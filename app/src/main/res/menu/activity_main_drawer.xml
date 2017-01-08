@@ -40,11 +40,11 @@
                 android:title="Mandatory Traffic Sign" />
             <item
                 android:id="@+id/cautionary_sign"
-                android:icon="@drawable/warning"
+                android:icon="@drawable/war"
                 android:title="Cautionary Sign" />
             <item
                 android:id="@+id/informatory_sign"
-                android:icon="@drawable/warning"
+                android:icon="@drawable/ic_route_sign_filled_100"
                 android:title="Informatory Sign" />
         </menu>
     </item>
