@@ -241,6 +241,8 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                     ets = "Sorry, Vehicle Name can not be empty";
                     inputVehicleTextView.setTextColor(Color.parseColor("#F44336"));
                     inputVehicleTextView.setText(ets);
+                    ButtonPayFine.setVisibility(View.GONE);
+                    finecards.setVisibility(View.GONE);
 
                 } else {
                     inputVehicleTextView.setVisibility(View.VISIBLE);
