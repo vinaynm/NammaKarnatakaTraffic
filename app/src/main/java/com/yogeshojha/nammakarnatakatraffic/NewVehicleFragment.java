@@ -243,6 +243,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                     inputVehicleTextView.setText(ets);
                     ButtonPayFine.setVisibility(View.GONE);
                     finecards.setVisibility(View.GONE);
+                    violatedtext.setVisibility(View.GONE);
 
                 } else {
                     inputVehicleTextView.setVisibility(View.VISIBLE);
@@ -326,12 +327,14 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         else {
             rateus_dialog();
             ButtonRateUs.setVisibility(View.VISIBLE);
+            ButtonPayFine.setVisibility(View.GONE);
             violatedtext.setVisibility(View.GONE);
             mRecyclerView.setVisibility(View.GONE);
             inputVehicleTextView.setVisibility(View.VISIBLE);
             fineslistshow.setVisibility(View.VISIBLE);
             fineslistshow.setTextColor(Color.parseColor("#3F51B5"));
             fineslistshow.setText(response);
+
         }
     }
     public void fineexist(ArrayList<String> arrayoffine, int TotalAmt)
