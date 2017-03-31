@@ -244,6 +244,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                     ButtonPayFine.setVisibility(View.GONE);
                     finecards.setVisibility(View.GONE);
                     violatedtext.setVisibility(View.GONE);
+                    fineslistshow.setVisibility(View.GONE);
 
                 } else {
                     inputVehicleTextView.setVisibility(View.VISIBLE);
