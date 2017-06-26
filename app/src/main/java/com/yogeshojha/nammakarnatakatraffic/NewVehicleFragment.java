@@ -100,7 +100,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         adRequest = new AdRequest.Builder().build();
 
         //request video ads
-        adRequest_video = new AdRequest.Builder().build();
+
         v = inflater.inflate(R.layout.fragment_new_vehicle, container, false);
         //ads
         //banner ads
@@ -212,8 +212,8 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         //interstial ads
-        //interstitial.loadAd(adRequest);
-        //interstitial.show();
+        interstitial.loadAd(adRequest);
+        interstitial.show();
 
         //set cards
         mRecyclerView = (RecyclerView) getActivity().findViewById(R.id.new_fine);
@@ -230,9 +230,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         total = 0;
         switch (v.getId()) {
             case R.id.submit_new:
-                //load video ads on every click
-                video_ad.loadAd(adRequest_video);
-                video_ad.show();
                 //load ads
                 AdRequest adRequest_traffic = new AdRequest.Builder().build();
                 mAdView_traffic_fine.loadAd(adRequest_traffic);
@@ -332,6 +329,10 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     }
     public void nofines(String response)
     {
+        //load video ads on every click
+        adRequest_video = new AdRequest.Builder().build();
+        video_ad.loadAd(adRequest_video);
+        video_ad.show();
         if(!flag)
         {
             Toast.makeText(v.getContext(), "ERROR, Server not responding, Please check your connection",
@@ -352,6 +353,10 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     }
     public void fineexist(ArrayList<String> arrayoffine, int TotalAmt)
     {
+        //load video ads on every click
+        adRequest_video = new AdRequest.Builder().build();
+        video_ad.loadAd(adRequest_video);
+        video_ad.show();
         rateus_dialog();
         ButtonPayFine.setVisibility(View.VISIBLE);
         ButtonRateUs.setVisibility(View.VISIBLE);

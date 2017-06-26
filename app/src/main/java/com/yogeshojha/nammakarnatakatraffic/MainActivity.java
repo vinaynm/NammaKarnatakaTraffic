@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("Learner's Licence Practice Test");
+            setTitle("Bangalore City Police News");
         }
         else if(id == R.id.nav_support)
         {

@@ -6,20 +6,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.app.Activity;
-import android.app.ListActivity;
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import com.google.gson.Gson;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -42,7 +33,7 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class NewsFragment extends Fragment {
-    final static String ScreenName = "Deepshikhapuri";
+    final static String ScreenName = "BlrCityPolice";
     final static String LOG_TAG = "rnc";
     ListView lv_list;
     ArrayList<String> al_text = new ArrayList<>();
@@ -67,7 +58,7 @@ public class NewsFragment extends Fragment {
     }
     // download twitter timeline after first checking to see if there is a network connection
     public void downloadTweets() {
-            new DownloadTwitterTask().execute(ScreenName);
+        new DownloadTwitterTask().execute(ScreenName);
     }
 
     // Uses an AsyncTask to download a Twitter user's timeline
@@ -75,7 +66,7 @@ public class NewsFragment extends Fragment {
         final static String CONSUMER_KEY = "MRbQlnHPOEOMBimW5kafNyu3i";
         final static String CONSUMER_SECRET = "b7RS5VxoHCswxSyDWNfBux5S7XhraHOnPdFW1BhKSw1NPYeits";
         final static String TwitterTokenURL = "https://api.twitter.com/oauth2/token";
-        final static String TwitterStreamURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=";
+        final static String TwitterStreamURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?count=100&exclude_replies=true&screen_name=";
         final ProgressDialog dialog = new ProgressDialog(getActivity());
 
         @Override
@@ -109,7 +100,7 @@ public class NewsFragment extends Fragment {
                 for (int i=0; i<jsonArray_data.length();i++){
 
                     JSONObject jsonObject = jsonArray_data.getJSONObject(i);
-                    al_text.add(jsonObject.getString("oj"));
+                    al_text.add(jsonObject.getString("text"));
                 }
             }catch (Exception e){
                 e.printStackTrace();
@@ -120,7 +111,9 @@ public class NewsFragment extends Fragment {
             // send the tweets to the adapter for rendering
             obj_adapter= new Adapter(getContext(), al_text);
             lv_list.setAdapter(obj_adapter);
+
         }
+
 
 
         // convert a JSON authentication object into an Authenticated object

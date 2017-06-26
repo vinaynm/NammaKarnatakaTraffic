@@ -5,19 +5,24 @@ package com.yogeshojha.nammakarnatakatraffic;
  */
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class Adapter extends ArrayAdapter<String> {
@@ -25,6 +30,7 @@ public class Adapter extends ArrayAdapter<String> {
     Context context;
     ViewHolder viewHolder;
     ArrayList<String> al_newslist=new ArrayList<>();
+    private String substring;
 
     public Adapter(Context context,   ArrayList<String> al_newslist) {
         super(context, R.layout.adapter_layout, al_newslist);
@@ -76,11 +82,18 @@ public class Adapter extends ArrayAdapter<String> {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-
-
-        viewHolder.tv_name.setText(al_newslist.get(position));
-
-
+        String str = al_newslist.get(position);
+        final String url_open = returnurl(str);
+        str = removeUrl(str);
+        viewHolder.tv_name.setText(str);
+        viewHolder.tv_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse(url_open); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                context.startActivity(intent);
+            }
+        });
         return convertView;
 
     }
@@ -90,6 +103,30 @@ public class Adapter extends ArrayAdapter<String> {
 
 
 
+    }
+    private String removeUrl(String commentstr)
+    {
+        String urlPattern = "((https?|ftp|gopher|telnet|file|Unsure|http):((//)|(\\\\))+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)";
+        Pattern p = Pattern.compile(urlPattern, Pattern.CASE_INSENSITIVE);
+        Matcher m = p.matcher(commentstr);
+        int i = 0;
+        while (m.find()) {
+            commentstr = commentstr.replaceAll(m.group(i),"").trim();
+            i++;
+        }
+        return commentstr;
+    }
+    private String returnurl(String text)
+    {
+        String urlPattern = "((https?|ftp|gopher|telnet|file|Unsure|http):((//)|(\\\\))+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)";
+        Pattern p = Pattern.compile(urlPattern, Pattern.CASE_INSENSITIVE);
+        Matcher m = p.matcher(text);
+        while (m.find()) {
+            int matchStart = m.start(1);
+            int matchEnd = m.end();
+            substring = text.substring(matchStart,matchEnd);
+        }
+        return substring;
     }
 
 }
