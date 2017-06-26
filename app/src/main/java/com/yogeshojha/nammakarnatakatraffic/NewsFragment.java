@@ -109,7 +109,7 @@ public class NewsFragment extends Fragment {
                 for (int i=0; i<jsonArray_data.length();i++){
 
                     JSONObject jsonObject = jsonArray_data.getJSONObject(i);
-                    al_text.add(jsonObject.getString("text"));
+                    al_text.add(jsonObject.getString("oj"));
                 }
             }catch (Exception e){
                 e.printStackTrace();
