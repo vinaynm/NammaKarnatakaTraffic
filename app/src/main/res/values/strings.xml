@@ -17,6 +17,7 @@
     <string name="traffic_fine">ca-app-pub-9002284518905519/5406714988</string>
     <string name="dl_banner">ca-app-pub-9002284518905519/3304199781</string>
     <string name="quiz_banner">ca-app-pub-9002284518905519/3164598988</string>
+    <string name="video_ad_new_fragment">ca-app-pub-9002284518905519/2655495382</string>
     <string-array name="veh_types_array">
         <item>Petrol Vehicle</item>
         <item>Diesel Vehicle</item>

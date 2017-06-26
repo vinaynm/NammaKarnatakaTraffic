@@ -4,10 +4,17 @@
     android:layout_height="match_parent"
     tools:context="com.yogeshojha.nammakarnatakatraffic.NewsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+    <RelativeLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+        <ListView
+            android:layout_width="match_parent"
+            android:id="@+id/lv_list"
+            android:layout_height="match_parent"
+            ></ListView>
+
+    </RelativeLayout>
 
 </FrameLayout>

@@ -51,7 +51,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class NewVehicleFragment extends Fragment implements View.OnClickListener {
     public RecyclerView mRecyclerView;
-    public InterstitialAd interstitial;
+    public InterstitialAd interstitial, video_ad;
     public String VehicleNo;
     public EditText inputstate;
     public EditText inputdstate;
@@ -59,7 +59,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     public EditText inputdtdstate;
     private RecyclerView.Adapter mAdapter;
     public TextView inputVehicleTextView;
-    AdRequest adRequest;
+    AdRequest adRequest, adRequest_video;
     private String URL;
     int count = 0;
     public TextView violatedtext;
@@ -84,12 +84,23 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        //test device
+        //.addTestDevice("837753417B2E0366EFC70A53F83E17AA")
         //ads init but not display for first time
 
         fm = getActivity().getSupportFragmentManager();
         interstitial = new InterstitialAd(getActivity());
         interstitial.setAdUnitId(getString(R.string.submit_onclick_new_frag));
+
+        //only video ads
+        video_ad = new InterstitialAd(getActivity());
+        video_ad.setAdUnitId(getString(R.string.video_ad_new_fragment));
+
+        //request interstitial ads
+        adRequest = new AdRequest.Builder().build();
+
+        //request video ads
+        adRequest_video = new AdRequest.Builder().build();
         v = inflater.inflate(R.layout.fragment_new_vehicle, container, false);
         //ads
         //banner ads
@@ -99,7 +110,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         LinearLayout layoutnew = (LinearLayout) v.findViewById(R.id.layout_admob_traffic_fine);
         layoutnew.addView(mAdView_traffic_fine);
         //
-        adRequest = new AdRequest.Builder().build();
         final Button new_submit_btn = (Button) v.findViewById(R.id.submit_new);
         ButtonPayFine = (Button) v.findViewById(R.id.ButtonPayFine);
         ButtonRateUs = (Button) v.findViewById(R.id.ButtonRateUs);
@@ -202,8 +212,9 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         //interstial ads
-        interstitial.loadAd(adRequest);
-        interstitial.show();
+        //interstitial.loadAd(adRequest);
+        //interstitial.show();
+
         //set cards
         mRecyclerView = (RecyclerView) getActivity().findViewById(R.id.new_fine);
         mRecyclerView.setHasFixedSize(true);
@@ -219,6 +230,9 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         total = 0;
         switch (v.getId()) {
             case R.id.submit_new:
+                //load video ads on every click
+                video_ad.loadAd(adRequest_video);
+                video_ad.show();
                 //load ads
                 AdRequest adRequest_traffic = new AdRequest.Builder().build();
                 mAdView_traffic_fine.loadAd(adRequest_traffic);
@@ -232,8 +246,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                         inputstate.getText().toString().equals("")
                                 ||
                                 inputdstate.getText().toString().equals("")
-                                ||
-                                inputtdstate.getText().toString().equals("")
                                 ||
                                 inputdtdstate.getText().toString().equals("")
                         ) {

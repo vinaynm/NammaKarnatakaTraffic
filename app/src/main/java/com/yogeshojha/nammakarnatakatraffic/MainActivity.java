@@ -110,6 +110,9 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         setTitle("Namma Karnataka Traffic");
+        //interstial ads load on any items selected
+        rcinterstitial.loadAd(rcadRequest);
+        rcinterstitial.show();
         if (id == R.id.nav_new_traffic) {
             //set the fragments initially
                     NewVehicleFragment fragment = new NewVehicleFragment();
@@ -139,10 +142,6 @@ public class MainActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_rc_check)
         {
-            //full ad
-            //interstial ads
-            rcinterstitial.loadAd(rcadRequest);
-            rcinterstitial.show();
             //set the fragments initially
             VehicleRcFragment fragment = new VehicleRcFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
@@ -206,6 +205,14 @@ public class MainActivity extends AppCompatActivity
             });
             alertDialog.show();
 
+        }
+        else if(id == R.id.nav_news)
+        {
+            NewsFragment fragment = new NewsFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
+            setTitle("Learner's Licence Practice Test");
         }
         else if(id == R.id.nav_support)
         {
