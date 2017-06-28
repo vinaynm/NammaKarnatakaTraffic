@@ -64,7 +64,7 @@
                 android:cropToPadding="false" />
 
         </LinearLayout>
-        <customfonts.robotoText
+        <TextView
             android:id="@+id/logoname"
             android:textSize="25dp"
             android:layout_gravity="center"

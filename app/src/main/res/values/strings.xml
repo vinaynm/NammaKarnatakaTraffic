@@ -18,6 +18,7 @@
     <string name="dl_banner">ca-app-pub-9002284518905519/3304199781</string>
     <string name="quiz_banner">ca-app-pub-9002284518905519/3164598988</string>
     <string name="video_ad_new_fragment">ca-app-pub-9002284518905519/4400955385</string>
+    <string name="news_ads">ca-app-pub-9002284518905519/1050536181</string>
     <string-array name="veh_types_array">
         <item>Petrol Vehicle</item>
         <item>Diesel Vehicle</item>

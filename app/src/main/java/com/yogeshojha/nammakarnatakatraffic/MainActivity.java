@@ -2,6 +2,9 @@ package com.yogeshojha.nammakarnatakatraffic;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.Uri;
@@ -27,20 +30,38 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.analytics.HitBuilders;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.onesignal.OneSignal;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    public String PREFS_NAME;
     NavigationView navigationView = null;
     Toolbar toolbar = null;
     private AdView mAdView;
     AdRequest rcadRequest;
     private FirebaseAnalytics mFirebaseAnalytics;
     public InterstitialAd rcinterstitial;
+    private PackageInfo pInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+        try {
+             pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+        }
+        catch (Exception e)
+        {
+
+        }
+        int verCode = pInfo.versionCode;
+        PREFS_NAME = "FirstRunPref_Namma";
+        PREFS_NAME = PREFS_NAME + verCode;
+        //first run shared preference
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME,0);//no flags set
+        boolean firstRun = settings.getBoolean("firstRun",true);
+
+        setContentView(R.layout.activity_main);
             //set the ads
             mAdView = (AdView) findViewById(R.id.adView);
             AdRequest adRequest = new AdRequest.Builder()
@@ -70,6 +91,32 @@ public class MainActivity extends AppCompatActivity
         rcinterstitial = new InterstitialAd(MainActivity.this);
         rcinterstitial.setAdUnitId(getString(R.string.rc_nav_onclick));
         rcadRequest = new AdRequest.Builder().build();
+        if(firstRun) {
+            String verNumber = pInfo.versionName;
+            final AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+            alertDialog.setTitle("What is New???");
+            alertDialog.setMessage("App Version: " + verNumber +"\nNew Updates\n***News Feature: Now you can read the news of Bangalore City Police right inside your App.***" +
+                    "\n-Minor Changes: Vehicle Name with no third alphabet now supported\n" +
+                    "-App Sized Decreased" +
+                    "\n-App Crash On Menu Events Fixed" +
+                    "-Minor Bug Fixes");
+            alertDialog.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,int which) {
+                    dialog.cancel();
+                }
+            });
+
+            // Showing Alert Message
+            alertDialog.show();
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putBoolean("firstRun", false);
+            editor.commit();
+
+        }
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
     }
 
     @Override

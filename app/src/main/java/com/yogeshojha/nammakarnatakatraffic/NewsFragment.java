@@ -66,7 +66,7 @@ public class NewsFragment extends Fragment {
         final static String CONSUMER_KEY = "MRbQlnHPOEOMBimW5kafNyu3i";
         final static String CONSUMER_SECRET = "b7RS5VxoHCswxSyDWNfBux5S7XhraHOnPdFW1BhKSw1NPYeits";
         final static String TwitterTokenURL = "https://api.twitter.com/oauth2/token";
-        final static String TwitterStreamURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?count=100&exclude_replies=true&screen_name=";
+        final static String TwitterStreamURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?count=50&exclude_replies=true&screen_name=";
         final ProgressDialog dialog = new ProgressDialog(getActivity());
 
         @Override
@@ -74,6 +74,7 @@ public class NewsFragment extends Fragment {
             super.onPreExecute();
             dialog.setTitle("Loading");
             dialog.setMessage("Please wait");
+            dialog.setCancelable(false);
             dialog.show();
 
         }
