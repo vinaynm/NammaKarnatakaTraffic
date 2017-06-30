@@ -264,7 +264,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         public void onPreExecute() {
             super.onPreExecute();
             mProgressDialog = new ProgressDialog(getActivity());
-            mProgressDialog.setMessage("Loading details for "+VehicleNo+"...");
+            mProgressDialog.setMessage(getString(R.string.loading)+"\n"+VehicleNo+"...");
             mProgressDialog.setIndeterminate(false);
             mProgressDialog.show();
         }
@@ -281,11 +281,12 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                     {
                         Elements tds = row.select("td");
                         if (tds.size() == 6 ) {
-                            finedetails = "Offence No: " + count + "\n" +
-                                    "Date: " + tds.get(2).text()+"\n"+
-                                    "Offence: " + tds.get(4).text() +"\n" +
-                                    "Amount: ₹"+tds.get(5).text()+"\n" +
-                                    "Notice Number: "+tds.get(1).text()+"\n"
+                            finedetails = getString(R.string.offence_no) + count + "\n" +
+                                    getString(R.string.date) + tds.get(2).text()+"\n"+
+                                    getString(R.string.time) + tds.get(3).text().substring(0,2)+":"+tds.get(3).text().substring(2,4)+"\n"+
+                                    getString(R.string.offence) + tds.get(4).text() +"\n" +
+                                    getString(R.string.amount)+tds.get(5).text()+"\n" +
+                                    getString(R.string.notice_no)+tds.get(1).text()+"\n"
                             ;
                             finearray.add(finedetails);
                             total += Integer.parseInt(tds.get(5).text());

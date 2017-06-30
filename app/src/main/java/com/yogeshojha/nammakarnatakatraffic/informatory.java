@@ -14,7 +14,6 @@ public class informatory extends Fragment {
     ImageView selectedImage;
 
     public informatory() {
-        // Required empty public constructor
     }
 
 

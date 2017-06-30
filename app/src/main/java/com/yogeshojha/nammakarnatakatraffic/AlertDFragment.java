@@ -20,9 +20,9 @@ public class AlertDFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         return new AlertDialog.Builder(getActivity())
                 .setIcon(R.drawable.rate)
-                .setTitle("Rate Us")
-                .setMessage("We just helped you finding your traffic fine list. We hope that helped. Would you like to rate us?")
-                .setPositiveButton("Sure", new DialogInterface.OnClickListener() {
+                .setTitle(getString(R.string.rateus_title))
+                .setMessage(getString(R.string.rateus_text))
+                .setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.yogeshojha.nammakarnatakatraffic")));
                         DatabaseHandler db = new DatabaseHandler(getContext());
@@ -35,7 +35,7 @@ public class AlertDFragment extends DialogFragment {
                         db.updateRate(newval);
                     }
                 })
-                .setNegativeButton("Not Now", new DialogInterface.OnClickListener() {
+                .setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,	int which) {
                         DatabaseHandler db = new DatabaseHandler(getContext());
                         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

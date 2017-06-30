@@ -67,8 +67,8 @@ public class NewsFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            dialog.setTitle("Loading");
-            dialog.setMessage("Please wait");
+            dialog.setTitle(getString(R.string.loading));
+            dialog.setMessage(getString(R.string.please_wait));
             dialog.setCancelable(false);
             dialog.show();
 

@@ -38,6 +38,7 @@
     <string name="cancel">Cancel</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="loading">Loading...</string>
     <string name="Okay_button">Okay</string>
     <string name="exit_title">Exiting App?</string>
     <string name="exit_text">Are you sure you want exit?</string>
@@ -45,10 +46,14 @@
     <string name="visit_website">Visit Website</string>
     <string name="email_dev">Email Developer</string>
     <string name="no_email_client">There are no email clients installed.</string>
+    <string name="please_news">Please Wait News is Loading...</string>
+    <string name="please_wait">Please Wait</string>
+    <string name="rateus_title">Rate Us</string>
+    <string name="rateus_text">We just helped you finding your traffic fine list. We hope that helped. Would you like to rate us???</string>
 
 
 
-    <!--title of navigation menu-->
+    <!--title of fragments-->
     <string name="new_reg">New Registration Traffic Violation</string>
     <string name="puc_check">PUC Check</string>
     <string name="driving_lsc">Driving License Status</string>
@@ -58,5 +63,14 @@
     <string name="informatory_sign">Informatory Signs</string>
     <string name="learner_lsc">Learner Licence Practice Test</string>
     <string name="blr_city_news">Bangalore City Police News</string>
+
+    <!--Fine strings-->
+    <string name="offence_no">Offence No:</string>
+    <string name="date">Date: </string>
+    <string name="time">Time: </string>
+    <string name="offence">Offence: </string>
+    <string name="amount">Amount: ₹</string>
+    <string name="notice_no">Notice Number: </string>
+
 
 </resources>

@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.util.Log;
@@ -105,7 +106,7 @@ public class Adapter extends ArrayAdapter<String> {
                 interstitial.show();
                 if(url_open.length()>0) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
-                    alert.setTitle("Please Wait News is Loading...");
+                    alert.setTitle(Resources.getSystem().getString(R.string.please_news));
                     WebView wv = new WebView(getContext());
                     wv.getSettings().setJavaScriptEnabled(true);
                     //wv.getSettings().setUserAgentString("Mozilla/5.0 (Linux; U; Android 2.0; en-us; Droid Build/ESD20) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17");
@@ -120,7 +121,7 @@ public class Adapter extends ArrayAdapter<String> {
                         }
                     });
                     alert.setView(wv);
-                    alert.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                    alert.setNegativeButton(Resources.getSystem().getString(R.string.cancel), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();

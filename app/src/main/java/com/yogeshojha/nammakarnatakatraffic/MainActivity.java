@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        setTitle("Namma Karnataka Traffic");
+        setTitle(getString(R.string.app_name));
         //interstial ads load on any items selected
         rcinterstitial.loadAd(rcadRequest);
         rcinterstitial.show();
