@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_text">ನಮ್ಮ ಕರ್ನಾಟಕ ಸಂಚಾರ ಕರ್ನಾಟಕ ಟ್ರಾಫಿಕ್ ಪೊಲೀಸ್ ಅಧಿಕೃತ ಅಪ್ಲಿಕೇಶನ್ ಅಲ್ಲ. ಟ್ರಾಫಿಕ್ ಉಲ್ಲಂಘನೆ, ಆರ್ಟಿಒ ವಿವರಗಳನ್ನು ವೀಕ್ಷಿಸಿ, ಡ್ರೈವಿಂಗ್ ಪರವಾನಗಿ ಸ್ಥಿತಿಯನ್ನು ಪರಿಶೀಲಿಸಿ, ಪಿಯುಸಿ ಸ್ಥಿತಿ ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಇನ್ನೂ ಹೆಚ್ಚಿನದನ್ನು ಪರೀಕ್ಷಿಸಲು ನಮ್ಮ ಕರ್ನಾಟಕ ಸಂಚಾರ ನಿಮಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ. ನೀವು ಇದೀಗ ಎಲ್ಎಲ್ ಪರೀಕ್ಷೆಯನ್ನು ಅಭ್ಯಾಸ ಮಾಡಬಹುದು !!!. ಸಂಕ್ಷಿಪ್ತವಾಗಿ ನಮ್ಮ ಕರ್ನಾಟಕ ಸಂಚಾರ ನಿಮ್ಮ ಪಾಕೆಟ್ ಡೆವಲಪರ್ನಲ್ಲಿ ಆರ್ಟಿಒ ಆಗಿದೆ: ಯೋಗೇಶ್ ಓಜಾ ಇಮೇಲ್: yogesh@linux.com ವೆಬ್ಸೈಟ್: http: //yogeshojha.com ಚಿತ್ರಗಳು ಕ್ರೆಡಿಟ್: ಫ್ರೀಪಿಕ್, ಅನ್ಪ್ಲಾಶ್ ದಯವಿಟ್ಟು ಯಾವುದೇ ಹೊಸ ವೈಶಿಷ್ಟ್ಯಗಳ ಬಗ್ಗೆ ನನಗೆ ಇಮೇಲ್ ಬರೆಯಲು ಮುಕ್ತವಾಗಿರಿ ನೀವು ನನಗೆ ಕಾರ್ಯಗತಗೊಳಿಸಲು ಬಯಸುವಿರಾ, ಅಥವಾ ಯಾವುದೇ ದೋಷಗಳು ಅಥವಾ ಹಲೋ ಹೇಳಲು. ನಿಮ್ಮ ಇಮೇಲ್ಗೆ ಉತ್ತರಿಸಲು ನಾನು ಸಂತೋಷವಾಗಿರುವೆ.</string>
+    <string name="about_title">ಬಗ್ಗೆ</string>
+    <string name="action_settings">ಸೆಟ್ಟಿಂಗ್ಗಳು</string>
+    <string name="amount">ಮೊತ್ತ: ₹</string>
+    <string name="blr_city_news">ಬೆಂಗಳೂರು ನಗರ ಪೊಲೀಸ್ ಸುದ್ದಿ</string>
+    <string name="cancel">ರದ್ದುಮಾಡಿ</string>
+    <string name="cautionary_sign">ಎಚ್ಚರಿಕೆಯ ಚಿಹ್ನೆ</string>
+    <string name="date">ದಿನಾಂಕ:</string>
+    <string name="download_button">ಈಗ ಡೌನ್ಲೋಡ್ ಮಾಡಿ</string>
+    <string name="download_cert">ಪ್ರಮಾಣಪತ್ರ ಡೌನ್ಲೋಡ್ ಮಾಡಿ</string>
+    <string name="driving_lsc">ಡ್ರೈವಿಂಗ್ ಲೈಸೆನ್ಸ್ ಸ್ಟೇಟಸ್</string>
+    <string name="email_dev">ಇಮೇಲ್ ಡೆವಲಪರ್</string>
+    <string name="enter_veh_no">ವಾಹನ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="error_server">ದೋಷ. ಸರ್ವರ್ ಕಾರ್ಯನಿರ್ವಹಿಸುವುದಿಲ್ಲ. ದಯವಿಟ್ಟು ನೆಟ್ವರ್ಕ್ ಪರಿಶೀಲಿಸಿ.</string>
+    <string name="exit_text">ನೀನು ನಿಜವಾಗಲೂ ಹೊರಗೆ ಹೂಗಬಯಸುತ್ತೀಯಾ?</string>
+    <string name="exit_title">ನಿರ್ಗಮನ?</string>
+    <string name="informatory_sign">ಇನ್ಫಾರ್ಮೇಟರಿ ಚಿಹ್ನೆ</string>
+    <string name="learner_lsc">ಲೇಅರ್ನೆರ್ ಲೈಸೆನ್ಸ್ ಪ್ರಾಕ್ಟೀಸ</string>
+    <string name="ll_menu">ಲೇಅರ್ನೆರ್ ಲೈಸೆನ್ಸ್ ಪ್ರಾಕ್ಟೀಸ್ ಟೆಸ್ಟ್</string>
+    <string name="loading">ಲೋಡಿಂಗ್...</string>
+    <string name="mandatory_sign">ಮ್ಯಾಂಡೇಟರಿ ಸೈನ್</string>
+    <string name="new_reg">ನವ ರಿಜಿಸ್ಟ್ರೇಷನ್ ವೆಹಿಕಲ್</string>
+    <string name="news_and_notice">ನ್ಯೂಸ್ ಅಂಡ್ ನೋಟೀಸ್</string>
+    <string name="no">ನೋ</string>
+    <string name="no_email_client">ತೇರು ಐಸ್ ನೋ ಇಮೇಲ್ ಇನ್ಸ್ಟಾಲ್ಲ್ಡ್.</string>
+    <string name="no_internet">"ನೋ ಇಂಟರ್ನೆಟ್ ಕನೆಕ್ಷನ್. ಪ್ಲೀಸ್ ಕಮ್ಬ್ಯಾಕ್ ಲೇಟರ್.</string>
+    <string name="no_records_puc">ಕ್ಷಮಿಸಿ ಯಾವುದೇ ದಾಖಲೆಗಳು ಕಂಡುಬಂದಿಲ್ಲ, ದಯವಿಟ್ಟು ನಿಮ್ಮ ವಾಹನ ಸಂಖ್ಯೆ ಅಥವಾ ವಾಹನ ಪ್ರಕಾರವನ್ನು ಪರಿಶೀಲಿಸಿ. ಪೆಟ್ರೋಲ್ ವೆಹಿಕಲ್ ಅಥವಾ ಡೀಸಲ್ ವಾಹನವನ್ನು ಪರೀಕ್ಷಿಸಲಾಗುವುದು ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.</string>
+    <string name="no_violation">ಈ ವಾಹನ ಸಂಖ್ಯೆಗೆ ಯಾವುದೇ ದಟ್ಟಣೆಯನ್ನು ಉಲ್ಲಂಘನೆ ಮಾಡಲಾಗಿಲ್ಲ. ಸಂತೋಷ ಮತ್ತು ಸುರಕ್ಷಿತ ಸವಾರಿ ಮಾಡಿ.</string>
+    <string name="notice_no">ಸೂಚನೆ ಸಂಖ್ಯೆ:</string>
+    <string name="offence">ಅಪರಾಧ:</string>
+    <string name="offence_no">ಅಪರಾಧ ಸಂಖ್ಯೆ:</string>
+    <string name="others">ಇತರರು</string>
+    <string name="pay_fine">ಉತ್ತಮವಾಗಿ ಪಾವತಿಸಿ</string>
+    <string name="petrol_veh">ಪೆಟ್ರೋಲ್ ವಾಹನ</string>
+    <string name="please_news">ಸುದ್ದಿ ಲೋಡ್ ಆಗುತ್ತಿರುವಾಗ ದಯವಿಟ್ಟು ನಿರೀಕ್ಷಿಸಿ ...</string>
+    <string name="please_wait">ದಯಮಾಡಿ ನಿರೀಕ್ಷಿಸಿ...</string>
+    <string name="please_wait_loading_puc">ದಯವಿಟ್ಟು ನಿರೀಕ್ಷಿಸಿ ... ಇದಕ್ಕಾಗಿ ವಿವರಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ:</string>
+    <string name="puc_check">ಪಿಯುಸಿ ಸ್ಥಿತಿ</string>
+    <string name="rateus_text">ನಿಮ್ಮ ಸಂಚಾರ ದಂಡ ಪಟ್ಟಿಯನ್ನು ಕಂಡುಹಿಡಿಯಲು ನಾವು ನಿಮಗೆ ಸಹಾಯ ಮಾಡಿದ್ದೇವೆ. ಅದು ನೆರವಾಯಿತು ಎಂದು ನಾವು ಭಾವಿಸುತ್ತೇವೆ. ನೀವು ನಮಗೆ ರೇಟ್ ಮಾಡಲು ಬಯಸುವಿರಾ ???</string>
+    <string name="rateus_title">ನಮಗೆ ರೇಟ್ ಮಾಡಿ</string>
+    <string name="rc_status">ವಾಹನ ಆರ್ಸಿ ಸ್ಥಿತಿ</string>
+    <string name="submit">ಸಲ್ಲಿಸಲು</string>
+    <string name="time">ಸಮಯ:</string>
+    <string name="top_500_text">ನೀವು ಉನ್ನತ 500 ಸಂಚಾರ ಉಲ್ಲಂಘಕರ ಪಟ್ಟಿಯನ್ನು ಡೌನ್ಲೋಡ್ ಮಾಡುವಿರಿ. ಬಹು ಸಂಚಾರ ಉಲ್ಲಂಘನೆಗಳೊಂದಿಗೆ ಟಾಪ್ 500 ವಾಹನಗಳ ಪಟ್ಟಿಯನ್ನು ಡೌನ್ಲೋಡ್ ಮಾಡಲು ನಿಮ್ಮನ್ನು ಕ್ರೋಮ್ಗೆ ಮರುನಿರ್ದೇಶಿಸಲಾಗುತ್ತದೆ. ಬೆಂಗಳೂರು ಟ್ರಾಫಿಕ್ ಪೋಲಿಸ್ನಿಂದ ಪಟ್ಟಿ ನೀಡಲಾಗಿದೆ.</string>
+    <string name="top_500_title">ಟಾಪ್ 500 ಉಲ್ಲಂಘಕರು ಡೌನ್ಲೋಡ್ ಮಾಡಿ.</string>
+    <string name="top_violation">ಹೆಚ್ಚಿನ ಸಂಚಾರ ಉಲ್ಲಂಘನೆಯ ವಾಹನ.</string>
+    <string name="total_violation">ಉಲ್ಲಂಘನೆಯ ಒಟ್ಟು ಸಂಖ್ಯೆ:</string>
+    <string name="traffic_sign">ಟ್ರಾಫಿಕ್ ಚಿಹ್ನೆ</string>
+    <string name="traffic_violation">ಟ್ರೈಫಿಕ ಉಲ್ಲಂಘನೆಗಳು</string>
+    <string name="vehicle_empty">ಕ್ಷಮಿಸಿ, ವಾಹನ ಹೆಸರು ಖಾಲಿ ಇರುವಂತಿಲ್ಲ</string>
+    <string name="vehicle_no">ವಾಹನ ಸಂಖ್ಯೆ:</string>
+    <string name="visit_website">ಭೇಟಿ ನೀಡಿ ವೆಬ್ಸೈಟ್</string>
+    <string name="yes">ಹೌದು</string>
+    <string name="Okay_button">ಸರಿ</string>
+    <string name="app_name">ನಮ್ಮ ಕರ್ನಾಟಕ ಟ್ರೈಫಿಕ</string>
+    <string-array name="lang_select">
+        <item>English</item>
+        <item>ಕನ್ನಡ</item>
+    </string-array>
+
+        <string name="language_setting">ಚೇಂಜ್ ಲ್ಯಾಂಗ್ವೇಜ್</string>
+    <string name="change">ಬದಲಿಸಿ</string>
+    <string name="change_msg">ನೀವು ನಿಜವಾಗಿಯೂ ಭಾಷೆಯನ್ನು ಬದಲಾಯಿಸಲು ಬಯಸುವಿರಾ?</string>
+</resources>
