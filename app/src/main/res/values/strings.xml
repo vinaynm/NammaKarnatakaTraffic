@@ -5,10 +5,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <!-- AdMob ad unit IDs -->
     <string name="footer_namma">ca-app-pub-9002284518905519/8702028988</string>
     <string name="submit_onclick_new_frag">ca-app-pub-9002284518905519/2655495382</string>
     <string name="rc_nav_onclick">ca-app-pub-9002284518905519/4132228583</string>
@@ -23,4 +19,44 @@
         <item>Petrol Vehicle</item>
         <item>Diesel Vehicle</item>
     </string-array>
+
+    <string name="about_text">Namma Karnataka Traffic is not an official app of Karnataka Traffic Police. Namma Karnataka Traffic helps you check traffic violations, view RTO details, check driving license status, check PUC status and many more.You can now practice LL test too!!!.\nIn a nutshell Namma Karnataka Traffic is a RTO in your PocketDeveloper: Yogesh Ojha\nEmail: yogesh@linux.com\nWebsite:http://yogeshojha.com\nImages credits: Freepik, Unsplash\n\nPlease feel free to write me an email regarding any new features that you want to me implement, or any bugs or just to say a hello. \nI will be happy to reply your email.</string>
+
+    <string name="whatisnew_title">What is New???</string>
+    <string name="whatisnew_text">App Version: 1.3 "\nNew Updates\n***News Feature: Now you can read the news of Bangalore City Police right inside your App.***
+                    \n-Minor Changes: Vehicle Name with no third alphabet now supported\n
+                    -App Sized Decreased
+                    \n-App Crash On Menu Events Fixed
+                    -Minor Bug Fixes"</string>
+
+    <string name="top_500_title">Download Top 500 Traffic Violators</string>
+    <string name="top_500_text">You are aboot to download list of top 500 Traffic Violators.
+                    \nYou will be redirected to chrome to download the list of Top 500 vehicles with Multiple Traffic Violations. \n
+                    List is provided by Bangalore Traffic Police.</string>
+
+    <string name="download_button">Download now</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="Okay_button">Okay</string>
+    <string name="exit_title">Exiting App?</string>
+    <string name="exit_text">Are you sure you want exit?</string>
+    <string name="about_title">About</string>
+    <string name="visit_website">Visit Website</string>
+    <string name="email_dev">Email Developer</string>
+    <string name="no_email_client">There are no email clients installed.</string>
+
+
+
+    <!--title of navigation menu-->
+    <string name="new_reg">New Registration Traffic Violation</string>
+    <string name="puc_check">PUC Check</string>
+    <string name="driving_lsc">Driving License Status</string>
+    <string name="rc_status">Vehicle RC Status</string>
+    <string name="cautionary_sign">Cautionary Signs</string>
+    <string name="mandatory_sign">Mandatory Signs</string>
+    <string name="informatory_sign">Informatory Signs</string>
+    <string name="learner_lsc">Learner Licence Practice Test</string>
+    <string name="blr_city_news">Bangalore City Police News</string>
+
 </resources>

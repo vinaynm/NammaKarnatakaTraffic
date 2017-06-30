@@ -90,15 +90,10 @@ public class MainActivity extends AppCompatActivity
         rcinterstitial.setAdUnitId(getString(R.string.rc_nav_onclick));
         rcadRequest = new AdRequest.Builder().build();
         if(firstRun) {
-            String verNumber = pInfo.versionName;
             final AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
-            alertDialog.setTitle("What is New???");
-            alertDialog.setMessage("App Version: " + verNumber +"\nNew Updates\n***News Feature: Now you can read the news of Bangalore City Police right inside your App.***" +
-                    "\n-Minor Changes: Vehicle Name with no third alphabet now supported\n" +
-                    "-App Sized Decreased" +
-                    "\n-App Crash On Menu Events Fixed" +
-                    "-Minor Bug Fixes");
-            alertDialog.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+            alertDialog.setTitle(getString(R.string.whatisnew_title));
+            alertDialog.setMessage(getString(R.string.whatisnew_text));
+            alertDialog.setPositiveButton(getString(R.string.Okay_button), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog,int which) {
                     dialog.cancel();
                 }
@@ -118,9 +113,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle("Exiting App")
-                .setMessage("Are you sure you want exit?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                .setTitle(getString(R.string.exit_title))
+                .setMessage(getString(R.string.exit_text))
+                .setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener()
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -128,7 +123,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                 })
-                .setNegativeButton("No", null)
+                .setNegativeButton(R.string.no, null)
                 .show();
     }
 
@@ -156,14 +151,14 @@ public class MainActivity extends AppCompatActivity
                 android.support.v4.app.FragmentTransaction fragmentTransaction =
                         getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-                setTitle("New Registration Traffic Violation");
+                setTitle(getString(R.string.new_reg));
         } else if(id == R.id.nav_puc_check)
         {
             PUCFragment fragment = new PUCFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("PUC Check");
+            setTitle(getString(R.string.puc_check));
 
         }
         else if (id == R.id.nav_licence_search)
@@ -172,7 +167,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("Driving License Status");
+            setTitle(getString(R.string.driving_lsc));
 
         }
         else if (id == R.id.nav_rc_check)
@@ -181,21 +176,19 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("Vehicle RC Status");
+            setTitle(getString(R.string.rc_status));
         }
         else if (id == R.id.nav_top_500)
         {
             final AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
-            alertDialog.setTitle("Download Top 500 Traffic Violators");
-            alertDialog.setMessage("You are aboot to download list of top 500 Traffic Violators. " +
-                    "\nYou will be redirected to chrome to download the list of Top 500 vehicles with Multiple Traffic Violations. \n" +
-                    "List is provided by Bangalore Traffic Police.");
-            alertDialog.setPositiveButton("Download now", new DialogInterface.OnClickListener() {
+            alertDialog.setTitle(getString(R.string.top_500_title));
+            alertDialog.setMessage(getString(R.string.top_500_text));
+            alertDialog.setPositiveButton(getString(R.string.download_button), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.yogeshojha.com/nammakarnataka/download_top_500.php")));
                 }
             });
-            alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            alertDialog.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
                 }
@@ -208,7 +201,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("Cautionary Signs");
+            setTitle(getString(R.string.cautionary_sign));
         }
         else if(id == R.id.mandatory_sign)
         {
@@ -216,7 +209,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("Mandatory Signs");
+            setTitle(getString(R.string.mandatory_sign));
         }
         else if(id == R.id.informatory_sign)
         {
@@ -224,7 +217,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("Mandatory Signs");
+            setTitle(getString(R.string.informatory_sign));
         }
         else if(id == R.id.nav_ll_test)
         {
@@ -232,23 +225,19 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("Learner's Licence Practice Test");
+            setTitle(getString(R.string.learner_lsc));
         }
         else if(id == R.id.nav_about_us)
         {
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
-            alertDialog.setTitle("About");
-            alertDialog.setMessage("Namma Karnataka Traffic is not an official app of Karnataka Traffic Police\n" +
-                    "Namma Karnataka Traffic helps you check traffic violations, view RTO details, check driving license status, check PUC status and many more." +
-                    "\nYou can now practice LL test too!!!\n" +
-                    "In a nutshell Namma Karnataka Traffic is a RTO in your Pocket\n" +
-                    "Developer: Yogesh Ojha\nEmail: yogesh@linux.com\nWebsite:http://yogeshojha.com\nImages credits: Freepik, Unsplash\n\nPlease feel free to write me an email regarding any new features that you want to me implement, or any bugs or just to say a hello. \nI will be happy to reply your email.");
-            alertDialog.setPositiveButton("Visit Website", new DialogInterface.OnClickListener() {
+            alertDialog.setTitle(getString(R.string.about_title));
+            alertDialog.setMessage(getString(R.string.about_text));
+            alertDialog.setPositiveButton(getString(R.string.visit_website), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://yogeshojha.com")));
                 }
             })
-            .setNeutralButton("Email Developer", new DialogInterface.OnClickListener() {
+            .setNeutralButton(getString(R.string.email_dev), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     Intent i = new Intent(Intent.ACTION_SEND);
                     i.setType("message/rfc822");
@@ -257,7 +246,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         startActivity(Intent.createChooser(i, "Send mail..."));
                     } catch (android.content.ActivityNotFoundException ex) {
-                        Toast.makeText(MainActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, getString(R.string.no_email_client), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -270,7 +259,7 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
-            setTitle("Bangalore City Police News");
+            setTitle(getString(R.string.blr_city_news));
         }
         else if(id == R.id.nav_support)
         {
