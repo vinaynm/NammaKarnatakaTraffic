@@ -86,4 +86,12 @@
     <string name="enter_veh_no">Enter The Vehicle Number</string>
     <string name="pay_fine">Pay Fine</string>
     <string name="download_cert">Download Certificate</string>
+
+    <!--menu items-->
+    <string name="traffic_violation">Traffic Violations</string>
+    <string name="news_and_notice">News and Notices</string>
+    <string name="ll_menu">LL Test Practice</string>
+    <string name="top_violation">Vehicle with most Traffic Violation</string>
+    <string name="traffic_sign">Traffic Signs</string>
+    <string name="others">Others</string>
 </resources>

@@ -5,59 +5,59 @@
         <item
             android:id="@+id/nav_new_traffic"
             android:icon="@drawable/ic_car_xxl"
-            android:title="Traffic Violation" />
+            android:title="@string/traffic_violation" />
         <item
             android:id="@+id/nav_rc_check"
             android:icon="@drawable/ic_reg"
-            android:title="Vehicle RC Status" />
+            android:title="@string/rc_status" />
         <item
             android:id="@+id/nav_puc_check"
             android:icon="@drawable/ic_exhaust"
-            android:title="PUC Check" />
+            android:title="@string/puc_check" />
         <item
             android:id="@+id/nav_licence_search"
             android:icon="@drawable/driver_license"
-            android:title="Driving License Status" />
+            android:title="@string/driving_lsc" />
         <item
             android:id="@+id/nav_news"
             android:icon="@drawable/ic_notice"
-            android:title="News and Notices" />
+            android:title="@string/news_and_notice" />
         <item
             android:id="@+id/nav_ll_test"
             android:icon="@drawable/ic_question_icon_79660"
-            android:title="LL Test Practice" />
+            android:title="@string/ll_menu" />
         <item
             android:id="@+id/nav_top_500"
             android:icon="@drawable/ic_519660_164_questionmark_512"
-            android:title="Vehicle with most Traffic Violation" />
+            android:title="@string/top_violation" />
 
     </group>
-    <item android:title="Traffic Signs">
+    <item android:title="@string/traffic_sign">
         <menu>
             <item
                 android:id="@+id/mandatory_sign"
                 android:icon="@drawable/warning"
-                android:title="Mandatory Traffic Sign" />
+                android:title="@string/mandatory_sign" />
             <item
                 android:id="@+id/cautionary_sign"
                 android:icon="@drawable/war"
-                android:title="Cautionary Sign" />
+                android:title="@string/cautionary_sign" />
             <item
                 android:id="@+id/informatory_sign"
                 android:icon="@drawable/ic_route_sign_filled_100"
-                android:title="Informatory Sign" />
+                android:title="@string/informatory_sign" />
         </menu>
     </item>
-    <item android:title="Others">
+    <item android:title="@string/others">
         <menu>
             <item
                 android:id="@+id/nav_about_us"
                 android:icon="@drawable/ic_photo"
-                android:title="About" />
+                android:title="@string/about_title" />
             <item
                 android:id="@+id/nav_support"
                 android:icon="@drawable/rate"
-                android:title="Rate Us" />
+                android:title="@string/rateus_title" />
         </menu>
     </item>
 
