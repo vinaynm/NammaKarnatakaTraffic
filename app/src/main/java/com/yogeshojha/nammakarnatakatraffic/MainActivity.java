@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity
                     "List is provided by Bangalore Traffic Police.");
             alertDialog.setPositiveButton("Download now", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.yogeshojha.com/nammakarnataka/download_top.php")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.yogeshojha.com/nammakarnataka/download_top_500.php")));
                 }
             });
             alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -247,8 +247,8 @@ public class MainActivity extends AppCompatActivity
                 public void onClick(DialogInterface dialog, int which) {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://yogeshojha.com")));
                 }
-            });
-            alertDialog.setNeutralButton("Email Developer", new DialogInterface.OnClickListener() {
+            })
+            .setNeutralButton("Email Developer", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     Intent i = new Intent(Intent.ACTION_SEND);
                     i.setType("message/rfc822");
