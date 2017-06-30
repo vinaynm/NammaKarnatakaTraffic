@@ -21,7 +21,6 @@ public class informatory extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_mandatory, container, false);
         Gallery gallery = (Gallery) v.findViewById(R.id.gallery);
             selectedImage=(ImageView) v.findViewById(R.id.imageView);
@@ -30,7 +29,6 @@ public class informatory extends Fragment {
         gallery.setAdapter(GalleryImageAdapterInformatory);
         gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                // show the selected Image
                 selectedImage.setImageResource(GalleryImageAdapterInformatory.mImageIds[position]);
             }
         });

@@ -1,30 +1,21 @@
 package com.yogeshojha.nammakarnatakatraffic;
 
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.Telephony;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -45,9 +36,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
+
 
 public class NewVehicleFragment extends Fragment implements View.OnClickListener {
     public RecyclerView mRecyclerView;
@@ -61,7 +50,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     public TextView inputVehicleTextView;
     AdRequest adRequest, adRequest_video;
     private String URL;
-    int count = 0;
     public TextView violatedtext;
     ProgressDialog mProgressDialog;
     public String finedetails = "";
@@ -84,9 +72,6 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //test device
-        //.addTestDevice("837753417B2E0366EFC70A53F83E17AA")
-        //ads init but not display for first time
 
         fm = getActivity().getSupportFragmentManager();
         interstitial = new InterstitialAd(getActivity());

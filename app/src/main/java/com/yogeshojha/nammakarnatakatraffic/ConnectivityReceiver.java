@@ -1,9 +1,5 @@
 package com.yogeshojha.nammakarnatakatraffic;
 
-/**
- * Created by y0g3sh on 14/12/16.
- */
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;

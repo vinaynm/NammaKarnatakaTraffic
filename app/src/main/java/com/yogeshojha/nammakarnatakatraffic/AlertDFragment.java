@@ -19,14 +19,9 @@ public class AlertDFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         return new AlertDialog.Builder(getActivity())
-                // Set Dialog Icon
                 .setIcon(R.drawable.rate)
-                // Set Dialog Title
                 .setTitle("Rate Us")
-                // Set Dialog Message
                 .setMessage("We just helped you finding your traffic fine list. We hope that helped. Would you like to rate us?")
-
-                // Positive button
                 .setPositiveButton("Sure", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.yogeshojha.nammakarnatakatraffic")));
@@ -40,8 +35,6 @@ public class AlertDFragment extends DialogFragment {
                         db.updateRate(newval);
                     }
                 })
-
-                // Negative Button
                 .setNegativeButton("Not Now", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,	int which) {
                         DatabaseHandler db = new DatabaseHandler(getContext());

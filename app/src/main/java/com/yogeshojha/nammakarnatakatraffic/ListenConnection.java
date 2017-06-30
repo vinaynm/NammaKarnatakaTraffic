@@ -38,11 +38,7 @@ public class ListenConnection extends Application    {
     }
     public void trackScreenView(String screenName) {
         Tracker t = getGoogleAnalyticsTracker();
-
-        // Set screen name.
         t.setScreenName(screenName);
-
-        // Send a screen view.
         t.send(new HitBuilders.ScreenViewBuilder().build());
 
         GoogleAnalytics.getInstance(this).dispatchLocalHits();
@@ -62,8 +58,6 @@ public class ListenConnection extends Application    {
     }
     public void trackEvent(String category, String action, String label) {
         Tracker t = getGoogleAnalyticsTracker();
-
-        // Build and send an Event.
         t.send(new HitBuilders.EventBuilder().setCategory(category).setAction(action).setLabel(label).build());
     }
 }

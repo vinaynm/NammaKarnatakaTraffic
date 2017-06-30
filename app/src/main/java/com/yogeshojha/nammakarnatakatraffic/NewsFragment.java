@@ -34,14 +34,12 @@ import java.util.ArrayList;
  */
 public class NewsFragment extends Fragment {
     final static String ScreenName = "BlrCityPolice";
-    final static String LOG_TAG = "rnc";
     ListView lv_list;
     ArrayList<String> al_text = new ArrayList<>();
     Adapter obj_adapter;
 
 
     public NewsFragment() {
-        // Required empty public constructor
     }
 
 
@@ -49,19 +47,16 @@ public class NewsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_news, container, false);
-        // Inflate the layout for this fragment
         lv_list = (ListView)view.findViewById(R.id.lv_list);
 
         downloadTweets();
 
         return view;
     }
-    // download twitter timeline after first checking to see if there is a network connection
     public void downloadTweets() {
         new DownloadTwitterTask().execute(ScreenName);
     }
 
-    // Uses an AsyncTask to download a Twitter user's timeline
     private class DownloadTwitterTask extends AsyncTask<String, Void, String> {
         final static String CONSUMER_KEY = "MRbQlnHPOEOMBimW5kafNyu3i";
         final static String CONSUMER_SECRET = "b7RS5VxoHCswxSyDWNfBux5S7XhraHOnPdFW1BhKSw1NPYeits";
@@ -89,7 +84,6 @@ public class NewsFragment extends Fragment {
             return result;
         }
 
-        // onPostExecute convert the JSON results into a Twitter object (which is an Array list of tweets
         @Override
         protected void onPostExecute(String result) {
             Log.e("result",result);
@@ -106,18 +100,10 @@ public class NewsFragment extends Fragment {
             }catch (Exception e){
                 e.printStackTrace();
             }
-
-
-
-            // send the tweets to the adapter for rendering
             obj_adapter= new Adapter(getContext(), al_text);
             lv_list.setAdapter(obj_adapter);
 
         }
-
-
-
-        // convert a JSON authentication object into an Authenticated object
         private Authenticated jsonToAuthenticated(String rawAuthorization) {
             Authenticated auth = null;
             if (rawAuthorization != null && rawAuthorization.length() > 0) {
@@ -125,7 +111,6 @@ public class NewsFragment extends Fragment {
                     Gson gson = new Gson();
                     auth = gson.fromJson(rawAuthorization, Authenticated.class);
                 } catch (IllegalStateException ex) {
-                    // just eat the exception
                 }
             }
             return auth;
@@ -162,40 +147,21 @@ public class NewsFragment extends Fragment {
 
         private String getTwitterStream(String screenName) {
             String results = null;
-
-            // Step 1: Encode consumer key and secret
             try {
-                // URL encode the consumer key and secret
                 String urlApiKey = URLEncoder.encode(CONSUMER_KEY, "UTF-8");
                 String urlApiSecret = URLEncoder.encode(CONSUMER_SECRET, "UTF-8");
-
-                // Concatenate the encoded consumer key, a colon character, and the
-                // encoded consumer secret
                 String combined = urlApiKey + ":" + urlApiSecret;
-
-                // Base64 encode the string
                 String base64Encoded = Base64.encodeToString(combined.getBytes(), Base64.NO_WRAP);
-
-                // Step 2: Obtain a bearer token
                 HttpPost httpPost = new HttpPost(TwitterTokenURL);
                 httpPost.setHeader("Authorization", "Basic " + base64Encoded);
                 httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
                 httpPost.setEntity(new StringEntity("grant_type=client_credentials"));
                 String rawAuthorization = getResponseBody(httpPost);
                 Authenticated auth = jsonToAuthenticated(rawAuthorization);
-
-                // Applications should verify that the value associated with the
-                // token_type key of the returned object is bearer
                 if (auth != null && auth.token_type.equals("bearer")) {
-
-                    // Step 3: Authenticate API requests with bearer token
                     HttpGet httpGet = new HttpGet(TwitterStreamURL + screenName);
-
-                    // construct a normal HTTPS request and include an Authorization
-                    // header with the value of Bearer <>
                     httpGet.setHeader("Authorization", "Bearer " + auth.access_token);
                     httpGet.setHeader("Content-Type", "application/json");
-                    // update the results with the body of the response
                     results = getResponseBody(httpGet);
                 }
             } catch (UnsupportedEncodingException ex) {

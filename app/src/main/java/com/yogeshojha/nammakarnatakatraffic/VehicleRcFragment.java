@@ -1,9 +1,7 @@
 package com.yogeshojha.nammakarnatakatraffic;
 
 
-import android.app.ProgressDialog;
 import android.graphics.Bitmap;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,9 +17,6 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
-import static android.os.Build.HOST;
-import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
-import static android.provider.Telephony.Carriers.PASSWORD;
 
 
 /**
@@ -33,21 +28,18 @@ public class VehicleRcFragment extends Fragment {
     private ProgressBar mPbar = null;
     private AdView mAdView_rc;
     public VehicleRcFragment() {
-        // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_vehicle_rc, container, false);
 
         mWebview =  (WebView)v.findViewById(R.id.webview_rc);
         mPbar = (ProgressBar) v.findViewById(R.id.web_view_progress);
         mWebview.setVisibility(View.VISIBLE);
         mWebview.loadUrl("http://parivahan.gov.in/rcdlstatus");
-        // Enable Javascript
         WebSettings webSettings = mWebview.getSettings();
         webSettings.setJavaScriptEnabled(true);
         mWebview.setWebViewClient(new rcWebViewClient());

@@ -27,21 +27,18 @@ public class DlCheckFragment extends Fragment {
     private ProgressBar mPbar = null;
     private AdView mAdView_dl;
     public DlCheckFragment() {
-        // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_dl_check, container, false);
 
         mWebview =  (WebView)v.findViewById(R.id.webview_dl);
         mPbar = (ProgressBar) v.findViewById(R.id.web_view_progress_dl);
         mWebview.setVisibility(View.VISIBLE);
         mWebview.loadUrl("https://parivahan.gov.in/rcdlstatus/?pur_cd=101");
-        // Enable Javascript
         WebSettings webSettings = mWebview.getSettings();
         webSettings.setJavaScriptEnabled(true);
         mWebview.setWebViewClient(new dlWebViewClient());

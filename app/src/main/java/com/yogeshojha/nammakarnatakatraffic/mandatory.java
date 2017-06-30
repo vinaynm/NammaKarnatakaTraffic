@@ -15,7 +15,6 @@ public class mandatory extends Fragment {
     ImageView selectedImage;
 
     public mandatory() {
-        // Required empty public constructor
     }
 
 
@@ -31,7 +30,6 @@ public class mandatory extends Fragment {
         gallery.setAdapter(galleryImageAdapter);
         gallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                // show the selected Image
                 selectedImage.setImageResource(galleryImageAdapter.mImageIds[position]);
             }
         });

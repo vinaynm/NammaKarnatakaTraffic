@@ -1,8 +1,6 @@
 package com.yogeshojha.nammakarnatakatraffic;
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -29,14 +27,12 @@ public class TestFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_test, container, false);
 
         mWebview =  (WebView)v.findViewById(R.id.webview_test);
         mPbar = (ProgressBar) v.findViewById(R.id.web_view_progress_test);
         mWebview.setVisibility(View.VISIBLE);
         mWebview.loadUrl("https://parivahan.gov.in/sarathiservice/stalllogin.do");
-        // Enable Javascript
         WebSettings webSettings = mWebview.getSettings();
         webSettings.setJavaScriptEnabled(true);
         mWebview.setWebViewClient(new testWebViewClient());

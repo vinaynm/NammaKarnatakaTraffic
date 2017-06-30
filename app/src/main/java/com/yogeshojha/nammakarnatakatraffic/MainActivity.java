@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     public String PREFS_NAME;
     NavigationView navigationView = null;
-    Toolbar toolbar = null;
     private AdView mAdView;
     AdRequest rcadRequest;
     private FirebaseAnalytics mFirebaseAnalytics;
@@ -68,13 +67,12 @@ public class MainActivity extends AppCompatActivity
                     .build();
             mAdView.loadAd(adRequest);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        //set the fragments initially
+
         NewVehicleFragment fragment = new NewVehicleFragment();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
                 getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
 
-        //
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -105,8 +103,6 @@ public class MainActivity extends AppCompatActivity
                     dialog.cancel();
                 }
             });
-
-            // Showing Alert Message
             alertDialog.show();
             SharedPreferences.Editor editor = settings.edit();
             editor.putBoolean("firstRun", false);
@@ -138,12 +134,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -161,7 +152,6 @@ public class MainActivity extends AppCompatActivity
         rcinterstitial.loadAd(rcadRequest);
         rcinterstitial.show();
         if (id == R.id.nav_new_traffic) {
-            //set the fragments initially
                     NewVehicleFragment fragment = new NewVehicleFragment();
                 android.support.v4.app.FragmentTransaction fragmentTransaction =
                         getSupportFragmentManager().beginTransaction();
@@ -169,7 +159,6 @@ public class MainActivity extends AppCompatActivity
                 setTitle("New Registration Traffic Violation");
         } else if(id == R.id.nav_puc_check)
         {
-            //set the fragments initially
             PUCFragment fragment = new PUCFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
@@ -179,7 +168,6 @@ public class MainActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_licence_search)
         {
-            //set the fragments initially
             DlCheckFragment fragment = new DlCheckFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
@@ -189,16 +177,33 @@ public class MainActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_rc_check)
         {
-            //set the fragments initially
             VehicleRcFragment fragment = new VehicleRcFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
             setTitle("Vehicle RC Status");
         }
+        else if (id == R.id.nav_top_500)
+        {
+            final AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+            alertDialog.setTitle("Download Top 500 Traffic Violators");
+            alertDialog.setMessage("You are aboot to download list of top 500 Traffic Violators. " +
+                    "\nYou will be redirected to chrome to download the list of Top 500 vehicles with Multiple Traffic Violations. \n" +
+                    "List is provided by Bangalore Traffic Police.");
+            alertDialog.setPositiveButton("Download now", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.yogeshojha.com/nammakarnataka/download_top.php")));
+                }
+            });
+            alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            alertDialog.show();
+        }
         else if(id == R.id.cautionary_sign)
         {
-            //set the fragments initially
             cautionary fragment = new cautionary();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
@@ -207,7 +212,6 @@ public class MainActivity extends AppCompatActivity
         }
         else if(id == R.id.mandatory_sign)
         {
-            //set the fragments initially
             mandatory fragment = new mandatory();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
@@ -216,7 +220,6 @@ public class MainActivity extends AppCompatActivity
         }
         else if(id == R.id.informatory_sign)
         {
-            //set the fragments initially
             informatory fragment = new informatory();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
@@ -225,7 +228,6 @@ public class MainActivity extends AppCompatActivity
         }
         else if(id == R.id.nav_ll_test)
         {
-            //set the fragments initially
             TestFragment fragment = new TestFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
@@ -234,20 +236,29 @@ public class MainActivity extends AppCompatActivity
         }
         else if(id == R.id.nav_about_us)
         {
-            //set the fragments initially
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
             alertDialog.setTitle("About");
             alertDialog.setMessage("Namma Karnataka Traffic is not an official app of Karnataka Traffic Police\n" +
                     "Namma Karnataka Traffic helps you check traffic violations, view RTO details, check driving license status, check PUC status and many more." +
                     "\nYou can now practice LL test too!!!\n" +
                     "In a nutshell Namma Karnataka Traffic is a RTO in your Pocket\n" +
-                    "Developer: Yogesh Ojha\nEmail: yogesh@linux.com\nWebsite:http://yogeshojha.com\nImages credits: Freepik, Unsplash");
-            alertDialog.setIcon(R.drawable.traffic);
+                    "Developer: Yogesh Ojha\nEmail: yogesh@linux.com\nWebsite:http://yogeshojha.com\nImages credits: Freepik, Unsplash\n\nPlease feel free to write me an email regarding any new features that you want to me implement, or any bugs or just to say a hello. \nI will be happy to reply your email.");
             alertDialog.setPositiveButton("Visit Website", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-
-                    // Write your code here to invoke YES event
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://yogeshojha.com")));
+                }
+            });
+            alertDialog.setNeutralButton("Email Developer", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("message/rfc822");
+                    i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"yogesh.ojha11@gmail.com"});
+                    i.putExtra(Intent.EXTRA_SUBJECT, "Namma Karnakata Traffic App");
+                    try {
+                        startActivity(Intent.createChooser(i, "Send mail..."));
+                    } catch (android.content.ActivityNotFoundException ex) {
+                        Toast.makeText(MainActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
             alertDialog.show();
@@ -263,7 +274,6 @@ public class MainActivity extends AppCompatActivity
         }
         else if(id == R.id.nav_support)
         {
-            //set the fragments initially
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.yogeshojha.nammakarnatakatraffic")));
         }
 

@@ -12,9 +12,4 @@ public class DataObject {
     public String getmText1() {
         return offence;
     }
-
-    public void setmText1(String mText1) {
-        this.offence = mText1;
-    }
-
 }

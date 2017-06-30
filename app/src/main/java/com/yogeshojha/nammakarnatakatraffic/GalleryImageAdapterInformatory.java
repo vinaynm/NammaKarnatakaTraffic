@@ -33,8 +33,6 @@ public class GalleryImageAdapterInformatory extends BaseAdapter{
         return position;
     }
 
-
-    // Override this method according to your need
     public View getView(int index, View view, ViewGroup viewGroup)
     {
 //        int length,width;

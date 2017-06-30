@@ -28,9 +28,6 @@ public class GalleryImageAdapter extends BaseAdapter
     public long getItemId(int position) {
         return position;
     }
-
-
-    // Override this method according to your need
     public View getView(int index, View view, ViewGroup viewGroup)
     {
         // TODO Auto-generated method stub

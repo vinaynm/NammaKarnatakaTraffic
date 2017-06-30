@@ -94,8 +94,6 @@ public class SplashScreen extends Activity implements ConnectivityReceiver.Conne
         showSnack(isConnected);
     }
     private void showSnack(boolean isConnected) {
-        String message;
-        int color;
         if (isConnected) {
             Intent myIntent = new Intent(getBaseContext(), MainActivity.class); startActivity(myIntent);
 
