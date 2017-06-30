@@ -203,14 +203,14 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                                 puc_inputdtdstate.getText().toString().equals("")
                         ) {
                     inputVehicleTextView.setVisibility(View.VISIBLE);
-                    ets = "Sorry, Vehicle Name can not be empty";
+                    ets = getString(R.string.vehicle_empty);
                     inputVehicleTextView.setTextColor(Color.parseColor("#F44336"));
                     inputVehicleTextView.setText(ets);
 
                 } else {
                     inputVehicleTextView.setVisibility(View.VISIBLE);
                     inputVehicleTextView.setTextColor(Color.parseColor("#757575"));
-                    ets = "Vehicle No. : " + VehicleNo;
+                    ets = getString(R.string.vehicle_no) + VehicleNo;
                     inputVehicleTextView.setText(ets);
                     URL = "http://yogeshojha.com/nammakarnataka/puc.php/?1=" + puc_inputstate.getText().toString()
                             + "&2=" + puc_inputdstate.getText().toString()
@@ -266,7 +266,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
         public void onPreExecute() {
             super.onPreExecute();
             pucProgressDialog = new ProgressDialog(getActivity());
-            pucProgressDialog.setMessage("Please Wait...\nLoading details for "+VehicleNo+"...");
+            pucProgressDialog.setMessage(getString(R.string.please_wait_loading_puc)+VehicleNo+"...");
             pucProgressDialog.setIndeterminate(false);
             pucProgressDialog.show();
         }
@@ -277,7 +277,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
                 Document document = Jsoup.connect(URL)
                         .timeout(15000).get();
                 pucarray.clear();
-                if (veh_type_string.equals("Petrol Vehicle"))
+                if (veh_type_string.equals(getString(R.string.petrol_veh)))
                 {
                     date_pid.clear();
                     for (Element table : document.select("table.petrol")) {
@@ -358,7 +358,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
     {
         if(!flag)
         {
-            Toast.makeText(v.getContext(), "ERROR, Server not responding, Please check your connection",
+            Toast.makeText(v.getContext(), getString(R.string.error_server),
                     Toast.LENGTH_LONG).show();
         }
         else {
@@ -366,7 +366,7 @@ public class PUCFragment extends Fragment implements View.OnClickListener {
             mRecyclerView.setVisibility(View.GONE);
             puclistshow.setVisibility(View.VISIBLE);
             puclistshow.setTextColor(Color.parseColor("#3F51B5"));
-            puclistshow.setText("Sorry No records found, please check your vehicle number or Vehicle Type. Ensure either Petrol Vehicle or Diesel Vehicle is checked.");
+            puclistshow.setText(getString(R.string.no_records_puc));
         }
     }
     public void pucfound(ArrayList<String> arrayofpuc)

@@ -36,7 +36,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                         <TextView
-                            android:text="Enter The Vehicle Number"
+                            android:text="@string/enter_veh_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentTop="true"
@@ -131,7 +131,7 @@
                         android:layout_height="wrap_content"
                         ></Spinner>
                     <Button
-                        android:text="Submit"
+                        android:text="@string/submit"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:id="@+id/puc_submit"
@@ -190,7 +190,7 @@
                 android:id="@+id/pucdetailslist">
                 <Button
                     android:visibility="gone"
-                    android:text="Download Certificate ⚡"
+                    android:text="@string/download_cert"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:id="@+id/Buttondownloadpuc"

@@ -66,13 +66,14 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
     private int total;
     private boolean flag = true;
     public static final String RupeeSymbol = "\u20B9";
-    public static final String VIOLATED = "Total No of. Violations: ";
-    public static final String No_FINE = "No Traffic Violations has been recorded for this vehicle number.\nHave a Happy and Safe ride";
+    public static String VIOLATED;
+    public static String No_FINE;
     public final ArrayList<String> finearray = new ArrayList<String>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        VIOLATED = getString(R.string.total_violation);
+        No_FINE = getString(R.string.no_violation);
         fm = getActivity().getSupportFragmentManager();
         interstitial = new InterstitialAd(getActivity());
         interstitial.setAdUnitId(getString(R.string.submit_onclick_new_frag));
@@ -232,7 +233,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                                 inputdtdstate.getText().toString().equals("")
                         ) {
                     inputVehicleTextView.setVisibility(View.VISIBLE);
-                    ets = "Sorry, Vehicle Name can not be empty";
+                    ets = getString(R.string.vehicle_empty);
                     inputVehicleTextView.setTextColor(Color.parseColor("#F44336"));
                     inputVehicleTextView.setText(ets);
                     ButtonPayFine.setVisibility(View.GONE);
@@ -243,7 +244,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
                 } else {
                     inputVehicleTextView.setVisibility(View.VISIBLE);
                     inputVehicleTextView.setTextColor(Color.parseColor("#757575"));
-                    ets = "Vehicle No. : " + VehicleNo;
+                    ets = getString(R.string.vehicle_no) + VehicleNo;
                     inputVehicleTextView.setText(ets);
                     URL = "http://yogeshojha.com/nammakarnataka/violations.php/?1=" + inputstate.getText().toString()
                             + "&2=" + inputdstate.getText().toString()
@@ -321,7 +322,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         video_ad.show();
         if(!flag)
         {
-            Toast.makeText(v.getContext(), "ERROR, Server not responding, Please check your connection",
+            Toast.makeText(v.getContext(), getString(R.string.error_server),
                     Toast.LENGTH_LONG).show();
         }
         else {
@@ -376,7 +377,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
         {
             db.addRate(new RateClass(current_date,"no"));
             AlertDFragment alertdFragment = new AlertDFragment();
-            alertdFragment.show(fm, "Rate Us");
+            alertdFragment.show(fm, getString(R.string.rateus_title));
         }
         else
         {
@@ -388,7 +389,7 @@ public class NewVehicleFragment extends Fragment implements View.OnClickListener
             if(!bool && (result.get_clickedon().equals("no")))
             {
                 AlertDFragment alertdFragment = new AlertDFragment();
-                alertdFragment.show(fm, "Rate Us");
+                alertdFragment.show(fm, getString(R.string.rateus_title));
             }
         }
 

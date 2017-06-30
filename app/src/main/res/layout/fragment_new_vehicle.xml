@@ -36,7 +36,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                         <TextView
-                            android:text="Enter The Vehicle Number"
+                            android:text="@string/enter_veh_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentTop="true"
@@ -126,7 +126,7 @@
 
                     </LinearLayout>
                     <Button
-                        android:text="Submit"
+                        android:text="@string/submit"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:id="@+id/submit_new"
@@ -233,7 +233,7 @@
             </LinearLayout>
                 <Button
                     android:visibility="gone"
-                    android:text="Pay Fine"
+                    android:text="@string/pay_fine"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:id="@+id/ButtonPayFine"
@@ -247,7 +247,7 @@
                     android:layout_centerHorizontal="true" />
                 <Button
                     android:visibility="gone"
-                    android:text="Rate Us☆☆☆"
+                    android:text="@string/rateus_text"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:id="@+id/ButtonRateUs"

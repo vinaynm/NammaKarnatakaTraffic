@@ -38,6 +38,7 @@
     <string name="cancel">Cancel</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="submit">Submit</string>
     <string name="loading">Loading...</string>
     <string name="Okay_button">Okay</string>
     <string name="exit_title">Exiting App?</string>
@@ -50,8 +51,7 @@
     <string name="please_wait">Please Wait</string>
     <string name="rateus_title">Rate Us</string>
     <string name="rateus_text">We just helped you finding your traffic fine list. We hope that helped. Would you like to rate us???</string>
-
-
+    <string name="error_server">ERROR, Server not responding, Please check your connection</string>
 
     <!--title of fragments-->
     <string name="new_reg">New Registration Traffic Violation</string>
@@ -71,6 +71,19 @@
     <string name="offence">Offence: </string>
     <string name="amount">Amount: ₹</string>
     <string name="notice_no">Notice Number: </string>
+    <string name="total_violation">Total No of. Violations: </string>
+    <string name="no_violation">No Traffic Violations has been recorded for this vehicle number.\nHave a Happy and Safe ride</string>
+    <string name="vehicle_empty">Sorry, Vehicle Name can not be empty</string>
+    <string name="vehicle_no">Vehicle No. : </string>
+    <!--PUC-->
+    <string name="please_wait_loading_puc">Please Wait...\nLoading details for </string>
+    <string name="petrol_veh">Petrol Vehicle</string>
+    <string name="no_records_puc">Sorry No records found, please check your vehicle number or Vehicle Type. Ensure either Petrol Vehicle or Diesel Vehicle is checked.</string>
 
 
+    <!--layout resource strings-->
+    <string name="no_internet">Uh! Oh!\nYou do not seem to have a working internet connection.\nComeback later!</string>
+    <string name="enter_veh_no">Enter The Vehicle Number</string>
+    <string name="pay_fine">Pay Fine</string>
+    <string name="download_cert">Download Certificate</string>
 </resources>
