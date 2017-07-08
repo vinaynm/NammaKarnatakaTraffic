@@ -8,6 +8,18 @@
 [Click here to download the application](https://play.google.com/store/apps/details?id=com.yogeshojha.nammakarnatakatraffic&hl=en)
 
 
+## Features
+
+* Check the traffic violations for vehicle registered in Karnataka
+* Check RC registration details.
+* Check PUC Test
+* Print the certificate for PUC test. Next time when police catches you, you can show your certificate on mobile. 
+* Know the status of your driving license.
+* Practice LL test on your mobile phone. 
+* Learn the traffic signs.
+* Find the routes
+* Support of Multiple Languages
+
 ## License
 
 Unless covered under some other license, all content in this repository is shared under an MIT license. See [license.md](./license.md) for details.
