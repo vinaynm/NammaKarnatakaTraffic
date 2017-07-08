@@ -1,3 +1,4 @@
+//test merge
 package com.yogeshojha.nammakarnatakatraffic;
 
 import android.content.DialogInterface;
@@ -305,7 +306,7 @@ public class MainActivity extends AppCompatActivity
                         PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "kn").commit();
                         setLangRecreate("kn");
                         return;
-                    default: //By default set to english
+                    default: //By default set the language to english
                         PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putString("LANG", "en").commit();
                         setLangRecreate("en");
                         return;
@@ -314,7 +315,7 @@ public class MainActivity extends AppCompatActivity
         });
         dialogBuilder.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                //pass
+                //do nothing
             }
         });
         AlertDialog b = dialogBuilder.create();
