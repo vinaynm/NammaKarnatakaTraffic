@@ -1,6 +1,7 @@
 # NammaKarnatakaTraffic
 
 ## Namma Karnataka Traffic is an android application that brings together services like Trafic violation Information, PUC Test, and many more.
+![alt text](https://lh3.googleusercontent.com/DF2SseWnIWLlfEMHyAdbfGOZ_w0J03lg9oYj8qvGsWuGEPAvGJ-U17PpsiBat9__vXVF=h900 "Namma Karnataka Traffic")
 
 ![play-store-button](https://mlsvc01-prod.s3.amazonaws.com/7e69fcc9001/3769a535-7b20-4f0a-ba3d-471f24c61c9d.png)
 
